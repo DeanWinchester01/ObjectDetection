@@ -1,0 +1,3 @@
+C:\Users\Dean Winchester\source\repos\ObjectDetection\ObjectDetection\x64\Debug\ObjectDetection.vcxproj.AssemblyReference.cache
+C:\Users\Dean Winchester\source\repos\ObjectDetection\ObjectDetection\x64\Debug\ObjectDetection.vcxproj.GenerateResource.cache
+C:\Users\Dean Winchester\source\repos\ObjectDetection\ObjectDetection\x64\Debug\ObjectDetection.MyForm.resources
