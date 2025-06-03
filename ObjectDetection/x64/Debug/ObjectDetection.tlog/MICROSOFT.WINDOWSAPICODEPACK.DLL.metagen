@@ -1,0 +1,1607 @@
+  Microsoft.WindowsAPICodePack.Resources.LocalizedMessages.resources - Embedded, ContainedInManifestFile, 
+ImageRuntimeVersion: v2.0.50727
+Assembly Microsoft.WindowsAPICodePack, Version=1.1.*, Culture=Invariant Language (Invariant Country): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Core, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Struct MS.WindowsAPICodePack.Internal.WindowMessage: AutoLayout, AnsiClass, Class, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    MS.WindowsAPICodePack.Internal.WindowMessage Null = 0 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Create = 1 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Destroy = 2 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Move = 3 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Size = 5 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Activate = 6 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage SetFocus = 7 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage KillFocus = 8 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Enable = 10 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage SetRedraw = 11 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage SetText = 12 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage GetText = 13 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage GetTextLength = 14 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Paint = 15 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Close = 16 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage QueryEndSession = 17 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Quit = 18 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage QueryOpen = 19 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage EraseBackground = 20 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage SystemColorChange = 21 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage EndSession = 22 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage SystemError = 23 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage ShowWindow = 24 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage ControlColor = 25 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage WinIniChange = 26 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage SettingChange = 26 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage DevModeChange = 27 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage ActivateApplication = 28 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage FontChange = 29 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage TimeChange = 30 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage CancelMode = 31 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage SetCursor = 32 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MouseActivate = 33 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage ChildActivate = 34 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage QueueSync = 35 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage GetMinMaxInfo = 36 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage PaintIcon = 38 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage IconEraseBackground = 39 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage NextDialogControl = 40 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage SpoolerStatus = 42 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage DrawItem = 43 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MeasureItem = 44 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage DeleteItem = 45 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage VKeyToItem = 46 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage CharToItem = 47 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage SetFont = 48 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage GetFont = 49 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage SetHotkey = 50 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage GetHotkey = 51 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage QueryDragIcon = 55 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage CompareItem = 57 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Compacting = 65 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage WindowPositionChanging = 70 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage WindowPositionChanged = 71 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Power = 72 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage CopyData = 74 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage CancelJournal = 75 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Notify = 78 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage InputLanguageChangeRequest = 80 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage InputLanguageChange = 81 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage TCard = 82 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Help = 83 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage UserChanged = 84 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage NotifyFormat = 85 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage ContextMenu = 123 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage StyleChanging = 124 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage StyleChanged = 125 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage DisplayChange = 126 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage GetIcon = 127 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage SetIcon = 128 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage NCCreate = 129 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage NCDestroy = 130 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage NCCalculateSize = 131 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage NCHitTest = 132 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage NCPaint = 133 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage NCActivate = 134 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage GetDialogCode = 135 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage NCMouseMove = 160 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage NCLeftButtonDown = 161 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage NCLeftButtonUp = 162 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage NCLeftButtonDoubleClick = 163 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage NCRightButtonDown = 164 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage NCRightButtonUp = 165 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage NCRightButtonDoubleClick = 166 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage NCMiddleButtonDown = 167 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage NCMiddleButtonUp = 168 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage NCMiddleButtonDoubleClick = 169 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage KeyFirst = 256 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage KeyDown = 256 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage KeyUp = 257 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Char = 258 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage DeadChar = 259 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage SystemKeyDown = 260 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage SystemKeyUp = 261 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage SystemChar = 262 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage SystemDeadChar = 263 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage KeyLast = 264 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage IMEStartComposition = 269 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage IMEEndComposition = 270 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage IMEComposition = 271 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage IMEKeyLast = 271 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage InitializeDialog = 272 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Command = 273 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage SystemCommand = 274 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Timer = 275 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage HorizontalScroll = 276 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage VerticalScroll = 277 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage InitializeMenu = 278 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage InitializeMenuPopup = 279 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MenuSelect = 287 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MenuChar = 288 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage EnterIdle = 289 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage CTLColorMessageBox = 306 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage CTLColorEdit = 307 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage CTLColorListbox = 308 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage CTLColorButton = 309 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage CTLColorDialog = 310 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage CTLColorScrollBar = 311 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage CTLColorStatic = 312 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MouseFirst = 512 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MouseMove = 512 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage LeftButtonDown = 513 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage LeftButtonUp = 514 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage LeftButtonDoubleClick = 515 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage RightButtonDown = 516 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage RightButtonUp = 517 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage RightButtonDoubleClick = 518 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MiddleButtonDown = 519 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MiddleButtonUp = 520 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MiddleButtonDoubleClick = 521 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MouseWheel = 522 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MouseHorizontalWheel = 526 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage ParentNotify = 528 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage EnterMenuLoop = 529 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage ExitMenuLoop = 530 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage NextMenu = 531 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Sizing = 532 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage CaptureChanged = 533 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Moving = 534 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage PowerBroadcast = 536 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage DeviceChange = 537 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MDICreate = 544 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MDIDestroy = 545 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MDIActivate = 546 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MDIRestore = 547 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MDINext = 548 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MDIMaximize = 549 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MDITile = 550 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MDICascade = 551 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MDIIconArrange = 552 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MDIGetActive = 553 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MDISetMenu = 560 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage EnterSizeMove = 561 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage ExitSizeMove = 562 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage DropFiles = 563 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MDIRefreshMenu = 564 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage IMESetContext = 641 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage IMENotify = 642 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage IMEControl = 643 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage IMECompositionFull = 644 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage IMESelect = 645 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage IMEChar = 646 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage IMEKeyDown = 656 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage IMEKeyUp = 657 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MouseHover = 673 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage NCMouseLeave = 674 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage MouseLeave = 675 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Cut = 768 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Copy = 769 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Paste = 770 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Clear = 771 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Undo = 772 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage RenderFormat = 773 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage RenderAllFormats = 774 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage DestroyClipboard = 775 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage DrawClipbard = 776 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage PaintClipbard = 777 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage VerticalScrollClipBoard = 778 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage SizeClipbard = 779 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage AskClipboardFormatname = 780 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage ChangeClipboardChain = 781 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage HorizontalScrollClipboard = 782 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage QueryNewPalette = 783 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage PaletteIsChanging = 784 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage PaletteChanged = 785 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Hotkey = 786 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage Print = 791 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage PrintClient = 792 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage HandHeldFirst = 856 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage HandHeldlast = 863 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage PenWinFirst = 896 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage PenWinLast = 911 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage CoalesceFirst = 912 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage CoalesceLast = 927 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage DDE_First = 992 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage DDE_Initiate = 992 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage DDE_Terminate = 993 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage DDE_Advise = 994 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage DDE_Unadvise = 995 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage DDE_Ack = 996 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage DDE_Data = 997 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage DDE_Request = 998 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage DDE_Poke = 999 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage DDE_Execute = 1000 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage DDE_Last = 1000 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage User = 1024 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.WindowMessage App = 32768 : Public, Static, Literal, HasDefault
+Struct MS.WindowsAPICodePack.Internal.HResult: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    MS.WindowsAPICodePack.Internal.HResult Ok = 0 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.HResult False = 1 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.HResult InvalidArguments = -2147024809 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.HResult OutOfMemory = -2147024882 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.HResult NoInterface = -2147467262 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.HResult Fail = -2147467259 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.HResult ElementNotFound = -2147023728 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.HResult TypeElementNotFound = -2147319765 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.HResult NoObject = -2147221019 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.HResult Win32ErrorCanceled = 1223 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.HResult Canceled = -2147023673 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.HResult ResourceInUse = -2147024726 : Public, Static, Literal, HasDefault
+    MS.WindowsAPICodePack.Internal.HResult AccessDenied = -2147287035 : Public, Static, Literal, HasDefault
+Class MS.WindowsAPICodePack.Internal.CoreErrorHelper: AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldInit
+  Fields:
+    Int32 Ignored = 0 : Public, Static, Literal, HasDefault
+  Methods:
+    HResultFromWin32(Int32): PrivateScope, Public, Static, HideBySig
+    Succeeded(Int32): PrivateScope, Public, Static, HideBySig
+    Succeeded(HResult): PrivateScope, Public, Static, HideBySig
+    Failed(HResult): PrivateScope, Public, Static, HideBySig
+    Failed(Int32): PrivateScope, Public, Static, HideBySig
+    Matches(Int32, Int32): PrivateScope, Public, Static, HideBySig
+Class MS.WindowsAPICodePack.Internal.CoreHelpers: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+  Properties:
+    Boolean RunningOnXP 'get ' : 
+    Boolean RunningOnVista 'get ' : 
+    Boolean RunningOnWin7 'get ' : 
+  Methods:
+    get_RunningOnXP(): PrivateScope, Public, Static, HideBySig, SpecialName
+    ThrowIfNotXP(): PrivateScope, Public, Static, HideBySig
+    get_RunningOnVista(): PrivateScope, Public, Static, HideBySig, SpecialName
+    ThrowIfNotVista(): PrivateScope, Public, Static, HideBySig
+    get_RunningOnWin7(): PrivateScope, Public, Static, HideBySig, SpecialName
+    ThrowIfNotWin7(): PrivateScope, Public, Static, HideBySig
+    GetStringResource(String): PrivateScope, Public, Static, HideBySig
+Class MS.WindowsAPICodePack.Internal.CoreNativeMethods: AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldInit
+  Fields:
+    Int32 UserMessage = 1024 : Assembly, Static, Literal, HasDefault
+    Int32 EnterIdleMessage = 289 : Assembly, Static, Literal, HasDefault
+    Int32 FormatMessageFromSystem = 4096 : Assembly, Static, Literal, HasDefault
+    UInt32 ResultFailed = 2147500037 : Assembly, Static, Literal, HasDefault
+    UInt32 ResultInvalidArgument = 2147942487 : Assembly, Static, Literal, HasDefault
+    UInt32 ResultFalse = 1 : Assembly, Static, Literal, HasDefault
+    UInt32 ResultNotFound = 2147943568 : Assembly, Static, Literal, HasDefault
+    Int32 DWMNCRP_USEWINDOWSTYLE = 0 : Assembly, Static, Literal, HasDefault
+    Int32 DWMNCRP_DISABLED = 1 : Assembly, Static, Literal, HasDefault
+    Int32 DWMNCRP_ENABLED = 2 : Assembly, Static, Literal, HasDefault
+    Int32 DWMWA_NCRENDERING_ENABLED = 1 : Assembly, Static, Literal, HasDefault
+    Int32 DWMWA_NCRENDERING_POLICY = 2 : Assembly, Static, Literal, HasDefault
+    Int32 DWMWA_TRANSITIONS_FORCEDISABLED = 3 : Assembly, Static, Literal, HasDefault
+    UInt32 StatusAccessDenied = 3221225506 : Assembly, Static, Literal, HasDefault
+  Methods:
+    PostMessage(IntPtr, WindowMessage, IntPtr, IntPtr): PrivateScope, Public, Static, HideBySig, PinvokeImpl
+    SendMessage(IntPtr, WindowMessage, IntPtr, IntPtr): PrivateScope, Public, Static, HideBySig, PinvokeImpl
+    SendMessage(IntPtr, UInt32, IntPtr, IntPtr): PrivateScope, Public, Static, HideBySig, PinvokeImpl
+    SendMessage(IntPtr, UInt32, IntPtr, String(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig, PinvokeImpl
+    SendMessage(IntPtr, UInt32, Int32, String): PrivateScope, Public, Static, HideBySig
+    SendMessage(IntPtr, UInt32, Int32&, StringBuilder(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig, PinvokeImpl
+    LoadLibrary(String(HasFieldMarshal)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    DeleteObject(IntPtr): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    LoadString(IntPtr, Int32, StringBuilder, Int32): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    LocalFree(Guid&): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    DestroyIcon(IntPtr): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    DestroyWindow(IntPtr): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    GetHiWord(Int64, Int32): PrivateScope, Public, Static, HideBySig
+    GetLoWord(Int64): PrivateScope, Public, Static, HideBySig
+Class MS.WindowsAPICodePack.Internal.PropVariant: AutoLayout, AnsiClass, Class, Public, ExplicitLayout, Sealed, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String[]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Boolean[]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int16[]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(UInt16[]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32[]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(UInt32[]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int64[]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(UInt64[]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Double[]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.DateTime[]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.DateTime): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Byte): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SByte): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int16): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(UInt16): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(UInt32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Decimal): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Decimal[]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Single): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Single[]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int64): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(UInt64): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    System.Runtime.InteropServices.VarEnum VarType 'get set' : 
+    Boolean IsNullOrEmpty 'get ' : 
+    System.Object Value 'get ' : 
+  Methods:
+    FromObject(Object): PrivateScope, Public, Static, HideBySig
+    SetIUnknown(Object): PrivateScope, Assembly, HideBySig
+    SetSafeArray(Array): PrivateScope, Assembly, HideBySig
+    get_VarType(): PrivateScope, Public, HideBySig, SpecialName
+    set_VarType(VarEnum): PrivateScope, Public, HideBySig, SpecialName
+    get_IsNullOrEmpty(): PrivateScope, Public, HideBySig, SpecialName
+    get_Value(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Class MS.WindowsAPICodePack.Internal.ZeroInvalidHandle: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  :System.Runtime.InteropServices.SafeHandle
+  Properties:
+    Boolean IsInvalid 'get ' : 
+  Methods:
+    get_IsInvalid(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+Class MS.WindowsAPICodePack.Internal.SafeIconHandle: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :MS.WindowsAPICodePack.Internal.ZeroInvalidHandle
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class MS.WindowsAPICodePack.Internal.SafeRegionHandle: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :MS.WindowsAPICodePack.Internal.ZeroInvalidHandle
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class MS.WindowsAPICodePack.Internal.SafeWindowHandle: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :MS.WindowsAPICodePack.Internal.ZeroInvalidHandle
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Microsoft.WindowsAPICodePack.Resources.LocalizedMessages: AutoLayout, AnsiClass, Class, BeforeFieldInit
+    Void .ctor(): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Resources.ResourceManager ResourceManager 'get ' : 
+    System.Globalization.CultureInfo Culture 'get set' : 
+    System.String ApplicationRecoverFailedToRegisterForRestartBadParameters 'get ' : 
+    System.String ApplicationRecoveryBadParameters 'get ' : 
+    System.String ApplicationRecoveryFailedToRegister 'get ' : 
+    System.String ApplicationRecoveryFailedToRegisterForRestart 'get ' : 
+    System.String ApplicationRecoveryFailedToUnregister 'get ' : 
+    System.String ApplicationRecoveryFailedToUnregisterForRestart 'get ' : 
+    System.String ApplicationRecoveryMustBeCalledFromCallback 'get ' : 
+    System.String BatteryStateStringRepresentation 'get ' : 
+    System.String CancelableCannotBeChanged 'get ' : 
+    System.String CaptionCannotBeChanged 'get ' : 
+    System.String CheckBoxCannotBeChanged 'get ' : 
+    System.String CollapsedTextCannotBeChanged 'get ' : 
+    System.String CoreHelpersRunningOn7 'get ' : 
+    System.String CoreHelpersRunningOnVista 'get ' : 
+    System.String CoreHelpersRunningOnXp 'get ' : 
+    System.String DialogCollectionCannotHaveDuplicateNames 'get ' : 
+    System.String DialogCollectionControlAlreadyHosted 'get ' : 
+    System.String DialogCollectionControlNameNull 'get ' : 
+    System.String DialogCollectionModifyShowingDialog 'get ' : 
+    System.String DialogControlNameCannotBeEmpty 'get ' : 
+    System.String DialogControlsCannotBeRenamed 'get ' : 
+    System.String DialogDefaultCaption 'get ' : 
+    System.String DialogDefaultContent 'get ' : 
+    System.String DialogDefaultMainInstruction 'get ' : 
+    System.String ExpandedDetailsCannotBeChanged 'get ' : 
+    System.String ExpandedLabelCannotBeChanged 'get ' : 
+    System.String ExpandingStateCannotBeChanged 'get ' : 
+    System.String HyperlinksCannotBetSet 'get ' : 
+    System.String InvalidReferencePath 'get ' : 
+    System.String MessageManagerHandlerNotRegistered 'get ' : 
+    System.String NativeTaskDialogConfigurationError 'get ' : 
+    System.String NativeTaskDialogInternalErrorArgs 'get ' : 
+    System.String NativeTaskDialogInternalErrorComplex 'get ' : 
+    System.String NativeTaskDialogInternalErrorUnexpected 'get ' : 
+    System.String NativeTaskDialogVersionError 'get ' : 
+    System.String OwnerCannotBeChanged 'get ' : 
+    System.String PowerExecutionStateFailed 'get ' : 
+    System.String PowerInsufficientAccessBatteryState 'get ' : 
+    System.String PowerInsufficientAccessCapabilities 'get ' : 
+    System.String PowerManagerActiveSchemeFailed 'get ' : 
+    System.String PowerManagerBatteryNotPresent 'get ' : 
+    System.String ProgressBarCannotBeChanged 'get ' : 
+    System.String ProgressBarCannotBeHostedInMultipleDialogs 'get ' : 
+    System.String PropertyKeyFormatString 'get ' : 
+    System.String PropVariantInitializationError 'get ' : 
+    System.String PropVariantMultiDimArray 'get ' : 
+    System.String PropVariantNullString 'get ' : 
+    System.String PropVariantTypeNotSupported 'get ' : 
+    System.String PropVariantUnsupportedType 'get ' : 
+    System.String RecoverySettingsFormatString 'get ' : 
+    System.String RestartSettingsFormatString 'get ' : 
+    System.String StandardButtonsCannotBeChanged 'get ' : 
+    System.String StartupLocationCannotBeChanged 'get ' : 
+    System.String TaskDialogBadButtonId 'get ' : 
+    System.String TaskDialogButtonTextEmpty 'get ' : 
+    System.String TaskDialogCheckBoxTextRequiredToEnableCheckBox 'get ' : 
+    System.String TaskDialogCloseNonShowing 'get ' : 
+    System.String TaskDialogDefaultCaption 'get ' : 
+    System.String TaskDialogDefaultContent 'get ' : 
+    System.String TaskDialogDefaultMainInstruction 'get ' : 
+    System.String TaskDialogOnlyOneDefaultControl 'get ' : 
+    System.String TaskDialogProgressBarMaxValueGreaterThanMin 'get ' : 
+    System.String TaskDialogProgressBarMinValueGreaterThanZero 'get ' : 
+    System.String TaskDialogProgressBarMinValueLessThanMax 'get ' : 
+    System.String TaskDialogProgressBarValueInRange 'get ' : 
+    System.String TaskDialogSupportedButtonsAndButtons 'get ' : 
+    System.String TaskDialogSupportedButtonsAndLinks 'get ' : 
+    System.String TaskDialogUnkownControl 'get ' : 
+  Methods:
+    get_ResourceManager(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_Culture(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    set_Culture(CultureInfo): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_ApplicationRecoverFailedToRegisterForRestartBadParameters(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_ApplicationRecoveryBadParameters(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_ApplicationRecoveryFailedToRegister(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_ApplicationRecoveryFailedToRegisterForRestart(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_ApplicationRecoveryFailedToUnregister(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_ApplicationRecoveryFailedToUnregisterForRestart(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_ApplicationRecoveryMustBeCalledFromCallback(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_BatteryStateStringRepresentation(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_CancelableCannotBeChanged(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_CaptionCannotBeChanged(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_CheckBoxCannotBeChanged(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_CollapsedTextCannotBeChanged(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_CoreHelpersRunningOn7(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_CoreHelpersRunningOnVista(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_CoreHelpersRunningOnXp(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_DialogCollectionCannotHaveDuplicateNames(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_DialogCollectionControlAlreadyHosted(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_DialogCollectionControlNameNull(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_DialogCollectionModifyShowingDialog(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_DialogControlNameCannotBeEmpty(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_DialogControlsCannotBeRenamed(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_DialogDefaultCaption(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_DialogDefaultContent(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_DialogDefaultMainInstruction(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_ExpandedDetailsCannotBeChanged(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_ExpandedLabelCannotBeChanged(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_ExpandingStateCannotBeChanged(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_HyperlinksCannotBetSet(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_InvalidReferencePath(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_MessageManagerHandlerNotRegistered(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_NativeTaskDialogConfigurationError(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_NativeTaskDialogInternalErrorArgs(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_NativeTaskDialogInternalErrorComplex(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_NativeTaskDialogInternalErrorUnexpected(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_NativeTaskDialogVersionError(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_OwnerCannotBeChanged(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_PowerExecutionStateFailed(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_PowerInsufficientAccessBatteryState(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_PowerInsufficientAccessCapabilities(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_PowerManagerActiveSchemeFailed(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_PowerManagerBatteryNotPresent(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_ProgressBarCannotBeChanged(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_ProgressBarCannotBeHostedInMultipleDialogs(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_PropertyKeyFormatString(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_PropVariantInitializationError(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_PropVariantMultiDimArray(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_PropVariantNullString(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_PropVariantTypeNotSupported(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_PropVariantUnsupportedType(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_RecoverySettingsFormatString(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_RestartSettingsFormatString(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_StandardButtonsCannotBeChanged(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_StartupLocationCannotBeChanged(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_TaskDialogBadButtonId(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_TaskDialogButtonTextEmpty(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_TaskDialogCheckBoxTextRequiredToEnableCheckBox(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_TaskDialogCloseNonShowing(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_TaskDialogDefaultCaption(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_TaskDialogDefaultContent(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_TaskDialogDefaultMainInstruction(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_TaskDialogOnlyOneDefaultControl(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_TaskDialogProgressBarMaxValueGreaterThanMin(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_TaskDialogProgressBarMinValueGreaterThanZero(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_TaskDialogProgressBarMinValueLessThanMax(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_TaskDialogProgressBarValueInRange(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_TaskDialogSupportedButtonsAndButtons(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_TaskDialogSupportedButtonsAndLinks(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_TaskDialogUnkownControl(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+Struct Microsoft.WindowsAPICodePack.Shell.PropertySystem.PropertyKey: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+    Void .ctor(System.Guid, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IEquatable`1[Microsoft.WindowsAPICodePack.Shell.PropertySystem.PropertyKey]
+  Properties:
+    System.Guid FormatId 'get ' : 
+    Int32 PropertyId 'get ' : 
+  Methods:
+    get_FormatId(): PrivateScope, Public, HideBySig, SpecialName
+    get_PropertyId(): PrivateScope, Public, HideBySig, SpecialName
+    Equals(PropertyKey): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    GetHashCode(): PrivateScope, Public, Virtual, HideBySig
+    Equals(Object): PrivateScope, Public, Virtual, HideBySig
+    op_Equality(PropertyKey, PropertyKey): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_Inequality(PropertyKey, PropertyKey): PrivateScope, Public, Static, HideBySig, SpecialName
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Class Microsoft.WindowsAPICodePack.Shell.PropertySystem.PropVariantNativeMethods: AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldInit
+  Methods:
+    InitPropVariantFromDoubleVector(Double[](In, Out), UInt32, PropVariant(Out)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    InitPropVariantFromFileTimeVector(FILETIME[](In, Out), UInt32, PropVariant(Out)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    InitPropVariantFromStringVector(String[](In, Out), UInt32, PropVariant(Out)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    PropVariantClear(PropVariant(In, Out)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    SafeArrayCreateVector(UInt16, Int32, UInt32): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    SafeArrayAccessData(IntPtr): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    SafeArrayUnaccessData(IntPtr): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    SafeArrayGetDim(IntPtr): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    SafeArrayGetLBound(IntPtr, UInt32): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    SafeArrayGetUBound(IntPtr, UInt32): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    SafeArrayGetElement(IntPtr, Int32&): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    InitPropVariantFromPropVariantVectorElem(PropVariant(In), UInt32, PropVariant(Out)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    InitPropVariantFromFileTime(FILETIME&(In), PropVariant(Out)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    PropVariantGetElementCount(PropVariant(In)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    PropVariantGetBooleanElem(PropVariant(In), UInt32(In), Boolean&(Out, HasFieldMarshal)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    PropVariantGetInt16Elem(PropVariant(In), UInt32(In), Int16&(Out)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    PropVariantGetUInt16Elem(PropVariant(In), UInt32(In), UInt16&(Out)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    PropVariantGetInt32Elem(PropVariant(In), UInt32(In), Int32&(Out)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    PropVariantGetUInt32Elem(PropVariant(In), UInt32(In), UInt32&(Out)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    PropVariantGetInt64Elem(PropVariant(In), UInt32(In), Int64&(Out)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    PropVariantGetUInt64Elem(PropVariant(In), UInt32(In), UInt64&(Out)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    PropVariantGetDoubleElem(PropVariant(In), UInt32(In), Double&(Out)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    PropVariantGetFileTimeElem(PropVariant(In), UInt32(In), FILETIME&(Out, HasFieldMarshal)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    PropVariantGetStringElem(PropVariant(In), UInt32(In), String&(HasFieldMarshal)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    InitPropVariantFromBooleanVector(Boolean[](In, HasFieldMarshal), UInt32, PropVariant(Out)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    InitPropVariantFromInt16Vector(Int16[](In, Out), UInt32, PropVariant(Out)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    InitPropVariantFromUInt16Vector(UInt16[](In, Out), UInt32, PropVariant(Out)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    InitPropVariantFromInt32Vector(Int32[](In, Out), UInt32, PropVariant(Out)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    InitPropVariantFromUInt32Vector(UInt32[](In, Out), UInt32, PropVariant(Out)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    InitPropVariantFromInt64Vector(Int64[](In, Out), UInt32, PropVariant(Out)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    InitPropVariantFromUInt64Vector(UInt64[](In, Out), UInt32, PropVariant(Out)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+Interface Microsoft.WindowsAPICodePack.Net.INetwork: AutoLayout, AnsiClass, Class, ClassSemanticsMask, Abstract, Import
+  Properties:
+    Boolean IsConnectedToInternet 'get ' : 
+    Boolean IsConnected 'get ' : 
+  Methods:
+    GetName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    SetName(String(In, HasFieldMarshal)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    GetDescription(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    SetDescription(String(In, HasFieldMarshal)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    GetNetworkId(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    GetDomainType(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    GetNetworkConnections(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    GetTimeCreatedAndConnected(UInt32&(Out), UInt32&(Out), UInt32&(Out), UInt32&(Out)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    get_IsConnectedToInternet(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_IsConnected(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    GetConnectivity(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    GetCategory(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    SetCategory(NetworkCategory(In)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Interface Microsoft.WindowsAPICodePack.Net.INetworkConnection: AutoLayout, AnsiClass, Class, ClassSemanticsMask, Abstract, Import
+  Properties:
+    Boolean IsConnectedToInternet 'get ' : 
+    Boolean IsConnected 'get ' : 
+  Methods:
+    GetNetwork(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    get_IsConnectedToInternet(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_IsConnected(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    GetConnectivity(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    GetConnectionId(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    GetAdapterId(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    GetDomainType(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Interface Microsoft.WindowsAPICodePack.Net.INetworkListManager: AutoLayout, AnsiClass, Class, ClassSemanticsMask, Abstract, Import
+  Properties:
+    Boolean IsConnectedToInternet 'get ' : 
+    Boolean IsConnected 'get ' : 
+  Methods:
+    GetNetworks(NetworkConnectivityLevels(In)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    GetNetwork(Guid(In)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    GetNetworkConnections(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    GetNetworkConnection(Guid(In)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    get_IsConnectedToInternet(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_IsConnected(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    GetConnectivity(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class Microsoft.WindowsAPICodePack.Net.NetworkListManagerClass: AutoLayout, AnsiClass, Class, Import, BeforeFieldInit
+  :System.__ComObject
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Microsoft.WindowsAPICodePack.Net.INetworkListManager
+  Properties:
+    Boolean IsConnected 'get ' : 
+    Boolean IsConnectedToInternet 'get ' : 
+  Methods:
+    GetConnectivity(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetNetwork(Guid(In)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetNetworkConnection(Guid(In)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetNetworkConnections(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetNetworks(NetworkConnectivityLevels(In)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    get_IsConnected(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_IsConnectedToInternet(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+Class Microsoft.WindowsAPICodePack.Net.Network: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Microsoft.WindowsAPICodePack.Net.INetwork): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Microsoft.WindowsAPICodePack.Net.NetworkCategory Category 'get set' : 
+    System.DateTime ConnectedTime 'get ' : 
+    Microsoft.WindowsAPICodePack.Net.NetworkConnectionCollection Connections 'get ' : 
+    Microsoft.WindowsAPICodePack.Net.ConnectivityStates Connectivity 'get ' : 
+    System.DateTime CreatedTime 'get ' : 
+    System.String Description 'get set' : 
+    Microsoft.WindowsAPICodePack.Net.DomainType DomainType 'get ' : 
+    Boolean IsConnected 'get ' : 
+    Boolean IsConnectedToInternet 'get ' : 
+    System.String Name 'get set' : 
+    System.Guid NetworkId 'get ' : 
+  Methods:
+    get_Category(): PrivateScope, Public, HideBySig, SpecialName
+    set_Category(NetworkCategory): PrivateScope, Public, HideBySig, SpecialName
+    get_ConnectedTime(): PrivateScope, Public, HideBySig, SpecialName
+    get_Connections(): PrivateScope, Public, HideBySig, SpecialName
+    get_Connectivity(): PrivateScope, Public, HideBySig, SpecialName
+    get_CreatedTime(): PrivateScope, Public, HideBySig, SpecialName
+    get_Description(): PrivateScope, Public, HideBySig, SpecialName
+    set_Description(String): PrivateScope, Public, HideBySig, SpecialName
+    get_DomainType(): PrivateScope, Public, HideBySig, SpecialName
+    get_IsConnected(): PrivateScope, Public, HideBySig, SpecialName
+    get_IsConnectedToInternet(): PrivateScope, Public, HideBySig, SpecialName
+    get_Name(): PrivateScope, Public, HideBySig, SpecialName
+    set_Name(String): PrivateScope, Public, HideBySig, SpecialName
+    get_NetworkId(): PrivateScope, Public, HideBySig, SpecialName
+Class Microsoft.WindowsAPICodePack.Net.NetworkCollection: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.Collections.IEnumerable): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.Generic.IEnumerable`1[Microsoft.WindowsAPICodePack.Net.Network]
+    System.Collections.IEnumerable
+  Methods:
+    GetEnumerator(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class Microsoft.WindowsAPICodePack.Net.NetworkConnection: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Microsoft.WindowsAPICodePack.Net.INetworkConnection): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Microsoft.WindowsAPICodePack.Net.Network Network 'get ' : 
+    System.Guid AdapterId 'get ' : 
+    System.Guid ConnectionId 'get ' : 
+    Microsoft.WindowsAPICodePack.Net.ConnectivityStates Connectivity 'get ' : 
+    Microsoft.WindowsAPICodePack.Net.DomainType DomainType 'get ' : 
+    Boolean IsConnectedToInternet 'get ' : 
+    Boolean IsConnected 'get ' : 
+  Methods:
+    get_Network(): PrivateScope, Public, HideBySig, SpecialName
+    get_AdapterId(): PrivateScope, Public, HideBySig, SpecialName
+    get_ConnectionId(): PrivateScope, Public, HideBySig, SpecialName
+    get_Connectivity(): PrivateScope, Public, HideBySig, SpecialName
+    get_DomainType(): PrivateScope, Public, HideBySig, SpecialName
+    get_IsConnectedToInternet(): PrivateScope, Public, HideBySig, SpecialName
+    get_IsConnected(): PrivateScope, Public, HideBySig, SpecialName
+Class Microsoft.WindowsAPICodePack.Net.NetworkConnectionCollection: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.Collections.IEnumerable): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.Generic.IEnumerable`1[Microsoft.WindowsAPICodePack.Net.NetworkConnection]
+    System.Collections.IEnumerable
+  Methods:
+    GetEnumerator(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Struct Microsoft.WindowsAPICodePack.Net.ConnectivityStates: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Microsoft.WindowsAPICodePack.Net.ConnectivityStates None = 0 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Net.ConnectivityStates IPv4Internet = 64 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Net.ConnectivityStates IPv4LocalNetwork = 32 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Net.ConnectivityStates IPv4NoTraffic = 1 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Net.ConnectivityStates IPv4Subnet = 16 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Net.ConnectivityStates IPv6Internet = 1024 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Net.ConnectivityStates IPv6LocalNetwork = 512 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Net.ConnectivityStates IPv6NoTraffic = 2 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Net.ConnectivityStates IPv6Subnet = 256 : Public, Static, Literal, HasDefault
+Struct Microsoft.WindowsAPICodePack.Net.DomainType: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Microsoft.WindowsAPICodePack.Net.DomainType NonDomainNetwork = 0 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Net.DomainType DomainNetwork = 1 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Net.DomainType DomainAuthenticated = 2 : Public, Static, Literal, HasDefault
+Struct Microsoft.WindowsAPICodePack.Net.NetworkCategory: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Microsoft.WindowsAPICodePack.Net.NetworkCategory Public = 0 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Net.NetworkCategory Private = 1 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Net.NetworkCategory Authenticated = 2 : Public, Static, Literal, HasDefault
+Struct Microsoft.WindowsAPICodePack.Net.NetworkConnectivityLevels: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Microsoft.WindowsAPICodePack.Net.NetworkConnectivityLevels Connected = 1 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Net.NetworkConnectivityLevels Disconnected = 2 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Net.NetworkConnectivityLevels All = 3 : Public, Static, Literal, HasDefault
+Class Microsoft.WindowsAPICodePack.Net.NetworkListManager: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+  Properties:
+    Boolean IsConnectedToInternet 'get ' : 
+    Boolean IsConnected 'get ' : 
+    Microsoft.WindowsAPICodePack.Net.ConnectivityStates Connectivity 'get ' : 
+  Methods:
+    GetNetworks(NetworkConnectivityLevels): PrivateScope, Public, Static, HideBySig
+    GetNetwork(Guid): PrivateScope, Public, Static, HideBySig
+    GetNetworkConnections(): PrivateScope, Public, Static, HideBySig
+    GetNetworkConnection(Guid): PrivateScope, Public, Static, HideBySig
+    get_IsConnectedToInternet(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_IsConnected(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_Connectivity(): PrivateScope, Public, Static, HideBySig, SpecialName
+Class Microsoft.WindowsAPICodePack.Dialogs.DialogControl: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  Properties:
+    Microsoft.WindowsAPICodePack.Dialogs.IDialogControlHost HostingDialog 'get set' : 
+    System.String Name 'get set' : 
+    Int32 Id   'get set' : 
+  Methods:
+    get_HostingDialog(): PrivateScope, Public, HideBySig, SpecialName
+    set_HostingDialog(IDialogControlHost): PrivateScope, Public, HideBySig, SpecialName
+    get_Name(): PrivateScope, Public, HideBySig, SpecialName
+    set_Name(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Id(): PrivateScope, Public, HideBySig, SpecialName
+    Equals(Object): PrivateScope, Public, Virtual, HideBySig
+    GetHashCode(): PrivateScope, Public, Virtual, HideBySig
+Class Microsoft.WindowsAPICodePack.Dialogs.DialogControlCollection`1[T]: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  Type parameter: T, Microsoft.WindowsAPICodePack.Dialogs.DialogControl
+  :System.Collections.ObjectModel.Collection`1[T]
+    Void .ctor(Microsoft.WindowsAPICodePack.Dialogs.IDialogControlHost): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    T Item [System.String] 'get ' : 
+  Methods:
+    get_Item(String): PrivateScope, Public, HideBySig, SpecialName
+    GetControlbyId(Int32): PrivateScope, Assembly, HideBySig
+Class Microsoft.WindowsAPICodePack.Dialogs.DialogsDefaults: AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldInit
+  Fields:
+    Int32 ProgressBarStartingValue = 0 : Assembly, Static, Literal, HasDefault
+    Int32 ProgressBarMinimumValue = 0 : Assembly, Static, Literal, HasDefault
+    Int32 ProgressBarMaximumValue = 100 : Assembly, Static, Literal, HasDefault
+    Int32 IdealWidth = 0 : Assembly, Static, Literal, HasDefault
+    Int32 MinimumDialogControlId = 9 : Assembly, Static, Literal, HasDefault
+  Properties:
+    System.String Caption 'get ' : 
+    System.String MainInstruction 'get ' : 
+    System.String Content 'get ' : 
+  Methods:
+    get_Caption(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_MainInstruction(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_Content(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+Interface Microsoft.WindowsAPICodePack.Dialogs.IDialogControlHost: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Methods:
+    IsCollectionChangeAllowed(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    ApplyCollectionChanged(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    IsControlPropertyChangeAllowed(String, DialogControl): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    ApplyControlPropertyChange(String, DialogControl): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Struct Microsoft.WindowsAPICodePack.Dialogs.DialogShowState: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Microsoft.WindowsAPICodePack.Dialogs.DialogShowState PreShow = 0 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.DialogShowState Showing = 1 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.DialogShowState Closing = 2 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.DialogShowState Closed = 3 : Public, Static, Literal, HasDefault
+Class Microsoft.WindowsAPICodePack.Dialogs.NativeTaskDialog: AutoLayout, AnsiClass, Class, BeforeFieldInit
+    Void .ctor(Microsoft.WindowsAPICodePack.Dialogs.NativeTaskDialogSettings, Microsoft.WindowsAPICodePack.Dialogs.TaskDialog): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    Microsoft.WindowsAPICodePack.Dialogs.DialogShowState ShowState 'get set' : 
+    Int32 SelectedButtonId 'get set' : 
+    Int32 SelectedRadioButtonId 'get set' : 
+    Boolean CheckBoxChecked 'get set' : 
+  Methods:
+    get_ShowState(): PrivateScope, Public, HideBySig, SpecialName
+    get_SelectedButtonId(): PrivateScope, Public, HideBySig, SpecialName
+    get_SelectedRadioButtonId(): PrivateScope, Public, HideBySig, SpecialName
+    get_CheckBoxChecked(): PrivateScope, Public, HideBySig, SpecialName
+    NativeShow(): PrivateScope, Assembly, HideBySig
+    NativeClose(TaskDialogResult): PrivateScope, Assembly, HideBySig
+    UpdateProgressBarValue(Int32): PrivateScope, Assembly, HideBySig
+    UpdateProgressBarRange(): PrivateScope, Assembly, HideBySig
+    UpdateProgressBarState(TaskDialogProgressBarState): PrivateScope, Assembly, HideBySig
+    UpdateText(String): PrivateScope, Assembly, HideBySig
+    UpdateInstruction(String): PrivateScope, Assembly, HideBySig
+    UpdateFooterText(String): PrivateScope, Assembly, HideBySig
+    UpdateExpandedText(String): PrivateScope, Assembly, HideBySig
+    UpdateMainIcon(TaskDialogStandardIcon): PrivateScope, Assembly, HideBySig
+    UpdateFooterIcon(TaskDialogStandardIcon): PrivateScope, Assembly, HideBySig
+    UpdateCheckBoxChecked(Boolean): PrivateScope, Assembly, HideBySig
+    UpdateElevationIcon(Int32, Boolean): PrivateScope, Assembly, HideBySig
+    UpdateButtonEnabled(Int32, Boolean): PrivateScope, Assembly, HideBySig
+    UpdateRadioButtonEnabled(Int32, Boolean): PrivateScope, Assembly, HideBySig
+    AssertCurrentlyShowing(): PrivateScope, Assembly, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class Microsoft.WindowsAPICodePack.Dialogs.NativeTaskDialogSettings: AutoLayout, AnsiClass, Class, BeforeFieldInit
+    Void .ctor(): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 ProgressBarMinimum 'get set' : 
+    Int32 ProgressBarMaximum 'get set' : 
+    Int32 ProgressBarValue 'get set' : 
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogProgressBarState ProgressBarState 'get set' : 
+    Boolean InvokeHelp 'get set' : 
+    TaskDialogConfiguration NativeConfiguration 'get set' : 
+    TaskDialogButton[] Buttons 'get set' : 
+    TaskDialogButton[] RadioButtons 'get set' : 
+    System.Collections.Generic.List`1[System.Int32] ElevatedButtons 'get set' : 
+  Methods:
+    get_ProgressBarMinimum(): PrivateScope, Public, HideBySig, SpecialName
+    set_ProgressBarMinimum(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_ProgressBarMaximum(): PrivateScope, Public, HideBySig, SpecialName
+    set_ProgressBarMaximum(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_ProgressBarValue(): PrivateScope, Public, HideBySig, SpecialName
+    set_ProgressBarValue(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_ProgressBarState(): PrivateScope, Public, HideBySig, SpecialName
+    set_ProgressBarState(TaskDialogProgressBarState): PrivateScope, Public, HideBySig, SpecialName
+    get_InvokeHelp(): PrivateScope, Public, HideBySig, SpecialName
+    set_InvokeHelp(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_NativeConfiguration(): PrivateScope, Public, HideBySig, SpecialName
+    get_Buttons(): PrivateScope, Public, HideBySig, SpecialName
+    set_Buttons(TaskDialogButton[]): PrivateScope, Public, HideBySig, SpecialName
+    get_RadioButtons(): PrivateScope, Public, HideBySig, SpecialName
+    set_RadioButtons(TaskDialogButton[]): PrivateScope, Public, HideBySig, SpecialName
+    get_ElevatedButtons(): PrivateScope, Public, HideBySig, SpecialName
+    set_ElevatedButtons(List`1): PrivateScope, Public, HideBySig, SpecialName
+Class Microsoft.WindowsAPICodePack.Dialogs.TaskDialogNativeMethods: AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldInit
+  Fields:
+    Int32 TaskDialogIdealWidth = 0 : Assembly, Static, Literal, HasDefault
+    Int32 TaskDialogButtonShieldIcon = 1 : Assembly, Static, Literal, HasDefault
+    Int32 NoDefaultButtonSpecified = 0 : Assembly, Static, Literal, HasDefault
+  Methods:
+    TaskDialogIndirect(TaskDialogConfiguration(In), Int32&(Out), Int32&(Out), Boolean&(Out, HasFieldMarshal)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+Class Microsoft.WindowsAPICodePack.Dialogs.TaskDialog: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Microsoft.WindowsAPICodePack.Dialogs.IDialogControlHost
+    System.IDisposable
+  Properties:
+    IntPtr OwnerWindowHandle 'get set' : 
+    System.String Text 'get set' : 
+    System.String InstructionText 'get set' : 
+    System.String Caption 'get set' : 
+    System.String FooterText 'get set' : 
+    System.String FooterCheckBoxText 'get set' : 
+    System.String DetailsExpandedText 'get set' : 
+    Boolean DetailsExpanded 'get set' : 
+    System.String DetailsExpandedLabel 'get set' : 
+    System.String DetailsCollapsedLabel 'get set' : 
+    Boolean Cancelable 'get set' : 
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogStandardIcon Icon 'get set' : 
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogStandardIcon FooterIcon 'get set' : 
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogStandardButtons StandardButtons 'get set' : 
+    Microsoft.WindowsAPICodePack.Dialogs.DialogControlCollection`1[Microsoft.WindowsAPICodePack.Dialogs.TaskDialogControl] Controls 'get ' : 
+    Boolean HyperlinksEnabled 'get set' : 
+    System.Nullable`1[System.Boolean] FooterCheckBoxChecked 'get set' : 
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogExpandedDetailsLocation ExpansionMode 'get set' : 
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogStartupLocation StartupLocation 'get set' : 
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogProgressBar ProgressBar 'get set' : 
+    Boolean IsPlatformSupported 'get ' : 
+  Events:
+    System.EventHandler`1[Microsoft.WindowsAPICodePack.Dialogs.TaskDialogTickEventArgs] Tick: 
+    System.EventHandler`1[Microsoft.WindowsAPICodePack.Dialogs.TaskDialogHyperlinkClickedEventArgs] HyperlinkClick: 
+    System.EventHandler`1[Microsoft.WindowsAPICodePack.Dialogs.TaskDialogClosingEventArgs] Closing: 
+    System.EventHandler HelpInvoked: 
+    System.EventHandler Opened: 
+  Methods:
+    add_Tick(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_Tick(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_HyperlinkClick(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_HyperlinkClick(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_Closing(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_Closing(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_HelpInvoked(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_HelpInvoked(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_Opened(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_Opened(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_OwnerWindowHandle(): PrivateScope, Public, HideBySig, SpecialName
+    set_OwnerWindowHandle(IntPtr): PrivateScope, Public, HideBySig, SpecialName
+    get_Text(): PrivateScope, Public, HideBySig, SpecialName
+    set_Text(String): PrivateScope, Public, HideBySig, SpecialName
+    get_InstructionText(): PrivateScope, Public, HideBySig, SpecialName
+    set_InstructionText(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Caption(): PrivateScope, Public, HideBySig, SpecialName
+    set_Caption(String): PrivateScope, Public, HideBySig, SpecialName
+    get_FooterText(): PrivateScope, Public, HideBySig, SpecialName
+    set_FooterText(String): PrivateScope, Public, HideBySig, SpecialName
+    get_FooterCheckBoxText(): PrivateScope, Public, HideBySig, SpecialName
+    set_FooterCheckBoxText(String): PrivateScope, Public, HideBySig, SpecialName
+    get_DetailsExpandedText(): PrivateScope, Public, HideBySig, SpecialName
+    set_DetailsExpandedText(String): PrivateScope, Public, HideBySig, SpecialName
+    get_DetailsExpanded(): PrivateScope, Public, HideBySig, SpecialName
+    set_DetailsExpanded(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_DetailsExpandedLabel(): PrivateScope, Public, HideBySig, SpecialName
+    set_DetailsExpandedLabel(String): PrivateScope, Public, HideBySig, SpecialName
+    get_DetailsCollapsedLabel(): PrivateScope, Public, HideBySig, SpecialName
+    set_DetailsCollapsedLabel(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Cancelable(): PrivateScope, Public, HideBySig, SpecialName
+    set_Cancelable(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_Icon(): PrivateScope, Public, HideBySig, SpecialName
+    set_Icon(TaskDialogStandardIcon): PrivateScope, Public, HideBySig, SpecialName
+    get_FooterIcon(): PrivateScope, Public, HideBySig, SpecialName
+    set_FooterIcon(TaskDialogStandardIcon): PrivateScope, Public, HideBySig, SpecialName
+    get_StandardButtons(): PrivateScope, Public, HideBySig, SpecialName
+    set_StandardButtons(TaskDialogStandardButtons): PrivateScope, Public, HideBySig, SpecialName
+    get_Controls(): PrivateScope, Public, HideBySig, SpecialName
+    get_HyperlinksEnabled(): PrivateScope, Public, HideBySig, SpecialName
+    set_HyperlinksEnabled(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_FooterCheckBoxChecked(): PrivateScope, Public, HideBySig, SpecialName
+    set_FooterCheckBoxChecked(Nullable`1): PrivateScope, Public, HideBySig, SpecialName
+    get_ExpansionMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_ExpansionMode(TaskDialogExpandedDetailsLocation): PrivateScope, Public, HideBySig, SpecialName
+    get_StartupLocation(): PrivateScope, Public, HideBySig, SpecialName
+    set_StartupLocation(TaskDialogStartupLocation): PrivateScope, Public, HideBySig, SpecialName
+    get_ProgressBar(): PrivateScope, Public, HideBySig, SpecialName
+    set_ProgressBar(TaskDialogProgressBar): PrivateScope, Public, HideBySig, SpecialName
+    Show(String): PrivateScope, Public, Static, HideBySig
+    Show(String, String): PrivateScope, Public, Static, HideBySig
+    Show(String, String, String): PrivateScope, Public, Static, HideBySig
+    Show(): PrivateScope, Public, HideBySig
+    Close(): PrivateScope, Public, HideBySig
+    Close(TaskDialogResult): PrivateScope, Public, HideBySig
+    RaiseButtonClickEvent(Int32): PrivateScope, Assembly, HideBySig
+    RaiseHyperlinkClickEvent(String): PrivateScope, Assembly, HideBySig
+    RaiseClosingEvent(Int32): PrivateScope, Assembly, HideBySig
+    RaiseHelpInvokedEvent(): PrivateScope, Assembly, HideBySig
+    RaiseOpenedEvent(): PrivateScope, Assembly, HideBySig
+    RaiseTickEvent(Int32): PrivateScope, Assembly, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Dispose(Boolean): PrivateScope, Public, HideBySig
+    get_IsPlatformSupported(): PrivateScope, Public, Static, HideBySig, SpecialName
+Class Microsoft.WindowsAPICodePack.Dialogs.TaskDialogBar: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :Microsoft.WindowsAPICodePack.Dialogs.TaskDialogControl
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogProgressBarState State 'get set' : 
+  Methods:
+    get_State(): PrivateScope, Public, HideBySig, SpecialName
+    set_State(TaskDialogProgressBarState): PrivateScope, Public, HideBySig, SpecialName
+Class Microsoft.WindowsAPICodePack.Dialogs.TaskDialogButton: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :Microsoft.WindowsAPICodePack.Dialogs.TaskDialogButtonBase
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean UseElevationIcon 'get set' : 
+  Methods:
+    get_UseElevationIcon(): PrivateScope, Public, HideBySig, SpecialName
+    set_UseElevationIcon(Boolean): PrivateScope, Public, HideBySig, SpecialName
+Class Microsoft.WindowsAPICodePack.Dialogs.TaskDialogButtonBase: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  :Microsoft.WindowsAPICodePack.Dialogs.TaskDialogControl
+  Properties:
+    System.String Text 'get set' : 
+    Boolean Enabled 'get set' : 
+    Boolean Default 'get set' : 
+  Events:
+    System.EventHandler Click: 
+  Methods:
+    add_Click(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_Click(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    RaiseClickEvent(): PrivateScope, Assembly, HideBySig
+    get_Text(): PrivateScope, Public, HideBySig, SpecialName
+    set_Text(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Enabled(): PrivateScope, Public, HideBySig, SpecialName
+    set_Enabled(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_Default(): PrivateScope, Public, HideBySig, SpecialName
+    set_Default(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Class Microsoft.WindowsAPICodePack.Dialogs.TaskDialogClosingEventArgs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.ComponentModel.CancelEventArgs
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogResult TaskDialogResult 'get set' : 
+    System.String CustomButton 'get set' : 
+  Methods:
+    get_TaskDialogResult(): PrivateScope, Public, HideBySig, SpecialName
+    set_TaskDialogResult(TaskDialogResult): PrivateScope, Public, HideBySig, SpecialName
+    get_CustomButton(): PrivateScope, Public, HideBySig, SpecialName
+    set_CustomButton(String): PrivateScope, Public, HideBySig, SpecialName
+Class Microsoft.WindowsAPICodePack.Dialogs.TaskDialogCommandLink: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :Microsoft.WindowsAPICodePack.Dialogs.TaskDialogButton
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String Instruction 'get set' : 
+  Methods:
+    get_Instruction(): PrivateScope, Public, HideBySig, SpecialName
+    set_Instruction(String): PrivateScope, Public, HideBySig, SpecialName
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Class Microsoft.WindowsAPICodePack.Dialogs.TaskDialogControl: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  :Microsoft.WindowsAPICodePack.Dialogs.DialogControl
+Class Microsoft.WindowsAPICodePack.Dialogs.TaskDialogDefaults: AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldInit
+  Fields:
+    Int32 ProgressBarMinimumValue = 0 : Public, Static, Literal, HasDefault
+    Int32 ProgressBarMaximumValue = 100 : Public, Static, Literal, HasDefault
+    Int32 IdealWidth = 0 : Public, Static, Literal, HasDefault
+    Int32 MinimumDialogControlId = 9 : Public, Static, Literal, HasDefault
+  Properties:
+    System.String Caption 'get ' : 
+    System.String MainInstruction 'get ' : 
+    System.String Content 'get ' : 
+  Methods:
+    get_Caption(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_MainInstruction(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_Content(): PrivateScope, Public, Static, HideBySig, SpecialName
+Struct Microsoft.WindowsAPICodePack.Dialogs.TaskDialogExpandedDetailsLocation: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogExpandedDetailsLocation Hide = 0 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogExpandedDetailsLocation ExpandContent = 1 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogExpandedDetailsLocation ExpandFooter = 2 : Public, Static, Literal, HasDefault
+Class Microsoft.WindowsAPICodePack.Dialogs.TaskDialogHyperlinkClickedEventArgs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String LinkText 'get set' : 
+  Methods:
+    get_LinkText(): PrivateScope, Public, HideBySig, SpecialName
+    set_LinkText(String): PrivateScope, Public, HideBySig, SpecialName
+Class Microsoft.WindowsAPICodePack.Dialogs.TaskDialogProgressBar: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :Microsoft.WindowsAPICodePack.Dialogs.TaskDialogBar
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 Minimum 'get set' : 
+    Int32 Maximum 'get set' : 
+    Int32 Value 'get set' : 
+    Boolean HasValidValues 'get ' : 
+  Methods:
+    get_Minimum(): PrivateScope, Public, HideBySig, SpecialName
+    set_Minimum(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Maximum(): PrivateScope, Public, HideBySig, SpecialName
+    set_Maximum(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Value(): PrivateScope, Public, HideBySig, SpecialName
+    set_Value(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_HasValidValues(): PrivateScope, Assembly, HideBySig, SpecialName
+Struct Microsoft.WindowsAPICodePack.Dialogs.TaskDialogProgressBarState: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogProgressBarState None = 0 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogProgressBarState Normal = 1 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogProgressBarState Error = 2 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogProgressBarState Paused = 3 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogProgressBarState Marquee = 4 : Public, Static, Literal, HasDefault
+Class Microsoft.WindowsAPICodePack.Dialogs.TaskDialogRadioButton: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :Microsoft.WindowsAPICodePack.Dialogs.TaskDialogButtonBase
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Struct Microsoft.WindowsAPICodePack.Dialogs.TaskDialogResult: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogResult None = 0 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogResult Ok = 1 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogResult Yes = 2 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogResult No = 4 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogResult Cancel = 8 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogResult Retry = 16 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogResult Close = 32 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogResult CustomButtonClicked = 256 : Public, Static, Literal, HasDefault
+Struct Microsoft.WindowsAPICodePack.Dialogs.TaskDialogStandardButtons: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogStandardButtons None = 0 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogStandardButtons Ok = 1 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogStandardButtons Yes = 2 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogStandardButtons No = 4 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogStandardButtons Cancel = 8 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogStandardButtons Retry = 16 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogStandardButtons Close = 32 : Public, Static, Literal, HasDefault
+Struct Microsoft.WindowsAPICodePack.Dialogs.TaskDialogStandardIcon: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogStandardIcon None = 0 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogStandardIcon Warning = 65535 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogStandardIcon Error = 65534 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogStandardIcon Information = 65533 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogStandardIcon Shield = 65532 : Public, Static, Literal, HasDefault
+Struct Microsoft.WindowsAPICodePack.Dialogs.TaskDialogStartupLocation: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogStartupLocation CenterScreen = 0 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.Dialogs.TaskDialogStartupLocation CenterOwner = 1 : Public, Static, Literal, HasDefault
+Class Microsoft.WindowsAPICodePack.Dialogs.TaskDialogTickEventArgs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 Ticks 'get set' : 
+  Methods:
+    get_Ticks(): PrivateScope, Public, HideBySig, SpecialName
+Class Microsoft.WindowsAPICodePack.ApplicationServices.ApplicationRestartRecoveryManager: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+  Methods:
+    RegisterForApplicationRecovery(RecoverySettings): PrivateScope, Public, Static, HideBySig
+    UnregisterApplicationRecovery(): PrivateScope, Public, Static, HideBySig
+    UnregisterApplicationRestart(): PrivateScope, Public, Static, HideBySig
+    ApplicationRecoveryInProgress(): PrivateScope, Public, Static, HideBySig
+    ApplicationRecoveryFinished(Boolean): PrivateScope, Public, Static, HideBySig
+    RegisterForApplicationRestart(RestartSettings): PrivateScope, Public, Static, HideBySig
+Class Microsoft.WindowsAPICodePack.ApplicationServices.ApplicationRecoveryException: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.Runtime.InteropServices.ExternalException
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, System.Exception): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Microsoft.WindowsAPICodePack.ApplicationServices.RecoveryCallback: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    BeginInvoke(Object, AsyncCallback, Object): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class Microsoft.WindowsAPICodePack.ApplicationServices.RecoveryData: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Microsoft.WindowsAPICodePack.ApplicationServices.RecoveryCallback, System.Object): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Microsoft.WindowsAPICodePack.ApplicationServices.RecoveryCallback Callback 'get set' : 
+    System.Object State 'get set' : 
+  Methods:
+    get_Callback(): PrivateScope, Public, HideBySig, SpecialName
+    set_Callback(RecoveryCallback): PrivateScope, Public, HideBySig, SpecialName
+    get_State(): PrivateScope, Public, HideBySig, SpecialName
+    set_State(Object): PrivateScope, Public, HideBySig, SpecialName
+    Invoke(): PrivateScope, Public, HideBySig
+Class Microsoft.WindowsAPICodePack.ApplicationServices.RecoverySettings: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Microsoft.WindowsAPICodePack.ApplicationServices.RecoveryData, UInt32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Microsoft.WindowsAPICodePack.ApplicationServices.RecoveryData RecoveryData 'get ' : 
+    UInt32 PingInterval 'get ' : 
+  Methods:
+    get_RecoveryData(): PrivateScope, Public, HideBySig, SpecialName
+    get_PingInterval(): PrivateScope, Public, HideBySig, SpecialName
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Struct Microsoft.WindowsAPICodePack.ApplicationServices.RestartRestrictions: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Microsoft.WindowsAPICodePack.ApplicationServices.RestartRestrictions None = 0 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.ApplicationServices.RestartRestrictions NotOnCrash = 1 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.ApplicationServices.RestartRestrictions NotOnHang = 2 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.ApplicationServices.RestartRestrictions NotOnPatch = 4 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.ApplicationServices.RestartRestrictions NotOnReboot = 8 : Public, Static, Literal, HasDefault
+Class Microsoft.WindowsAPICodePack.ApplicationServices.RestartSettings: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.String, Microsoft.WindowsAPICodePack.ApplicationServices.RestartRestrictions): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String Command 'get ' : 
+    Microsoft.WindowsAPICodePack.ApplicationServices.RestartRestrictions Restrictions 'get ' : 
+  Methods:
+    get_Command(): PrivateScope, Public, HideBySig, SpecialName
+    get_Restrictions(): PrivateScope, Public, HideBySig, SpecialName
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Class Microsoft.WindowsAPICodePack.ApplicationServices.PowerManagerException: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.Exception
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, System.Exception): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Microsoft.WindowsAPICodePack.ApplicationServices.AppRestartRecoveryNativeMethods: AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldInit
+  Properties:
+    InternalRecoveryCallback InternalCallback 'get ' : 
+  Methods:
+    get_InternalCallback(): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    ApplicationRecoveryFinished(Boolean(HasFieldMarshal)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    ApplicationRecoveryInProgress(Boolean&(Out, HasFieldMarshal)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    RegisterApplicationRecoveryCallback(InternalRecoveryCallback, IntPtr, UInt32, UInt32): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    RegisterApplicationRestart(String(HasFieldMarshal), RestartRestrictions): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    UnregisterApplicationRecoveryCallback(): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    UnregisterApplicationRestart(): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+Class Microsoft.WindowsAPICodePack.ApplicationServices.PowerManagementNativeMethods: AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldInit
+  Fields:
+    UInt32 PowerBroadcastMessage = 536 : Assembly, Static, Literal, HasDefault
+    UInt32 PowerSettingChangeMessage = 32787 : Assembly, Static, Literal, HasDefault
+    UInt32 ScreenSaverSetActive = 17 : Assembly, Static, Literal, HasDefault
+    UInt32 UpdateInFile = 1 : Assembly, Static, Literal, HasDefault
+    UInt32 SendChange = 2 : Assembly, Static, Literal, HasDefault
+  Methods:
+    CallNtPowerInformation(PowerInformationLevel, IntPtr, UInt32, SystemPowerCapabilities&(Out), UInt32): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    CallNtPowerInformation(PowerInformationLevel, IntPtr, UInt32, SystemBatteryState&(Out), UInt32): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    PowerGetActiveScheme(IntPtr, Guid&(Out, HasFieldMarshal)): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    RegisterPowerSettingNotification(IntPtr, Guid&, Int32): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+    SetThreadExecutionState(ExecutionStates): PrivateScope, Assembly, Static, HideBySig, PinvokeImpl
+Class Microsoft.WindowsAPICodePack.ApplicationServices.BatteryState: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean ACOnline 'get set' : 
+    Int32 MaxCharge 'get set' : 
+    Int32 CurrentCharge 'get set' : 
+    Int32 ChargeRate 'get set' : 
+    System.TimeSpan EstimatedTimeRemaining 'get set' : 
+    Int32 SuggestedCriticalBatteryCharge 'get set' : 
+    Int32 SuggestedBatteryWarningCharge 'get set' : 
+  Methods:
+    get_ACOnline(): PrivateScope, Public, HideBySig, SpecialName
+    get_MaxCharge(): PrivateScope, Public, HideBySig, SpecialName
+    get_CurrentCharge(): PrivateScope, Public, HideBySig, SpecialName
+    get_ChargeRate(): PrivateScope, Public, HideBySig, SpecialName
+    get_EstimatedTimeRemaining(): PrivateScope, Public, HideBySig, SpecialName
+    get_SuggestedCriticalBatteryCharge(): PrivateScope, Public, HideBySig, SpecialName
+    get_SuggestedBatteryWarningCharge(): PrivateScope, Public, HideBySig, SpecialName
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Class Microsoft.WindowsAPICodePack.ApplicationServices.EventManager: AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldInit
+  Fields:
+    System.Threading.AutoResetEvent monitorOnReset : Assembly, Static
+    System.Guid PowerPersonalityChange : Assembly, Static, InitOnly
+    System.Guid PowerSourceChange : Assembly, Static, InitOnly
+    System.Guid BatteryCapacityChange : Assembly, Static, InitOnly
+    System.Guid BackgroundTaskNotification : Assembly, Static, InitOnly
+    System.Guid MonitorPowerStatus : Assembly, Static, InitOnly
+  Methods:
+    IsMessageCaught(Guid): PrivateScope, Assembly, Static, HideBySig
+Struct Microsoft.WindowsAPICodePack.ApplicationServices.ExecutionStates: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Microsoft.WindowsAPICodePack.ApplicationServices.ExecutionStates None = 0 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.ApplicationServices.ExecutionStates SystemRequired = 1 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.ApplicationServices.ExecutionStates DisplayRequired = 2 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.ApplicationServices.ExecutionStates AwayModeRequired = 64 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.ApplicationServices.ExecutionStates Continuous = -2147483648 : Public, Static, Literal, HasDefault
+Class Microsoft.WindowsAPICodePack.ApplicationServices.MessageManager: AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldInit
+  Methods:
+    RegisterPowerEvent(Guid, EventHandler): PrivateScope, Assembly, Static, HideBySig
+    UnregisterPowerEvent(Guid, EventHandler): PrivateScope, Assembly, Static, HideBySig
+Class Microsoft.WindowsAPICodePack.ApplicationServices.PowerPersonalityGuids: AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldInit
+  Fields:
+    System.Guid HighPerformance : Assembly, Static, InitOnly
+    System.Guid PowerSaver : Assembly, Static, InitOnly
+    System.Guid Automatic : Assembly, Static, InitOnly
+    System.Guid All : Assembly, Static, InitOnly
+  Methods:
+    GuidToEnum(Guid): PrivateScope, Assembly, Static, HideBySig
+Class Microsoft.WindowsAPICodePack.ApplicationServices.Power: AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldInit
+  Methods:
+    GetSystemPowerCapabilities(): PrivateScope, Assembly, Static, HideBySig
+    GetSystemBatteryState(): PrivateScope, Assembly, Static, HideBySig
+    RegisterPowerSettingNotification(IntPtr, Guid): PrivateScope, Assembly, Static, HideBySig
+Class Microsoft.WindowsAPICodePack.ApplicationServices.PowerManager: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+  Properties:
+    Boolean MonitorRequired 'get set' : 
+    Boolean RequestBlockSleep 'get set' : 
+    Boolean IsBatteryPresent 'get ' : 
+    Boolean IsBatteryShortTerm 'get ' : 
+    Boolean IsUpsPresent 'get ' : 
+    Microsoft.WindowsAPICodePack.ApplicationServices.PowerPersonality PowerPersonality 'get ' : 
+    Int32 BatteryLifePercent 'get ' : 
+    Boolean IsMonitorOn 'get set' : 
+    Microsoft.WindowsAPICodePack.ApplicationServices.PowerSource PowerSource 'get ' : 
+  Events:
+    System.EventHandler PowerPersonalityChanged: 
+    System.EventHandler PowerSourceChanged: 
+    System.EventHandler BatteryLifePercentChanged: 
+    System.EventHandler IsMonitorOnChanged: 
+    System.EventHandler SystemBusyChanged: 
+  Methods:
+    add_PowerPersonalityChanged(EventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_PowerPersonalityChanged(EventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    add_PowerSourceChanged(EventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_PowerSourceChanged(EventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    add_BatteryLifePercentChanged(EventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_BatteryLifePercentChanged(EventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    add_IsMonitorOnChanged(EventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_IsMonitorOnChanged(EventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    add_SystemBusyChanged(EventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_SystemBusyChanged(EventHandler): PrivateScope, Public, Static, HideBySig, SpecialName
+    GetCurrentBatteryState(): PrivateScope, Public, Static, HideBySig
+    get_MonitorRequired(): PrivateScope, Public, Static, HideBySig, SpecialName
+    set_MonitorRequired(Boolean): PrivateScope, Public, Static, HideBySig, SpecialName, HasSecurity
+    get_RequestBlockSleep(): PrivateScope, Public, Static, HideBySig, SpecialName
+    set_RequestBlockSleep(Boolean): PrivateScope, Public, Static, HideBySig, SpecialName, HasSecurity
+    get_IsBatteryPresent(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_IsBatteryShortTerm(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_IsUpsPresent(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_PowerPersonality(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_BatteryLifePercent(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_IsMonitorOn(): PrivateScope, Public, Static, HideBySig, SpecialName
+    set_IsMonitorOn(Boolean): PrivateScope, Assembly, Static, HideBySig, SpecialName
+    get_PowerSource(): PrivateScope, Public, Static, HideBySig, SpecialName
+    SetThreadExecutionState(ExecutionStates): PrivateScope, Public, Static, HideBySig
+Struct Microsoft.WindowsAPICodePack.ApplicationServices.PowerPersonality: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Microsoft.WindowsAPICodePack.ApplicationServices.PowerPersonality Unknown = 0 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.ApplicationServices.PowerPersonality HighPerformance = 1 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.ApplicationServices.PowerPersonality PowerSaver = 2 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.ApplicationServices.PowerPersonality Automatic = 3 : Public, Static, Literal, HasDefault
+Struct Microsoft.WindowsAPICodePack.ApplicationServices.PowerSource: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Microsoft.WindowsAPICodePack.ApplicationServices.PowerSource AC = 0 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.ApplicationServices.PowerSource Battery = 1 : Public, Static, Literal, HasDefault
+    Microsoft.WindowsAPICodePack.ApplicationServices.PowerSource Ups = 2 : Public, Static, Literal, HasDefault
+Struct MS.WindowsAPICodePack.Internal.CoreNativeMethods+Size: AutoLayout, AnsiClass, Class, NestedPublic, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+  Properties:
+    Int32 Width 'get set' : 
+    Int32 Height 'get set' : 
+  Methods:
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    set_Width(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    set_Height(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class MS.WindowsAPICodePack.Internal.CoreNativeMethods+WNDPROC: AutoLayout, AnsiClass, Class, NestedPublic, Sealed
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Invoke(IntPtr, UInt32, IntPtr, IntPtr): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    BeginInvoke(IntPtr, UInt32, IntPtr, IntPtr, AsyncCallback, Object): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class Microsoft.WindowsAPICodePack.Dialogs.TaskDialogNativeMethods+TaskDialogConfiguration: AutoLayout, AnsiClass, Class, NestedAssembly, SequentialLayout, AutoClass, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    UInt32 size : Assembly
+    IntPtr parentHandle : Assembly
+    IntPtr instance : Assembly
+    TaskDialogOptions taskDialogFlags : Assembly
+    TaskDialogCommonButtons commonButtons : Assembly
+    System.String windowTitle : Assembly, HasFieldMarshal
+    IconUnion mainIcon : Assembly
+    System.String mainInstruction : Assembly, HasFieldMarshal
+    System.String content : Assembly, HasFieldMarshal
+    UInt32 buttonCount : Assembly
+    IntPtr buttons : Assembly
+    Int32 defaultButtonIndex : Assembly
+    UInt32 radioButtonCount : Assembly
+    IntPtr radioButtons : Assembly
+    Int32 defaultRadioButtonIndex : Assembly
+    System.String verificationText : Assembly, HasFieldMarshal
+    System.String expandedInformation : Assembly, HasFieldMarshal
+    System.String expandedControlText : Assembly, HasFieldMarshal
+    System.String collapsedControlText : Assembly, HasFieldMarshal
+    IconUnion footerIcon : Assembly
+    System.String footerText : Assembly, HasFieldMarshal
+    TaskDialogCallback callback : Assembly
+    IntPtr callbackData : Assembly
+    UInt32 width : Assembly
+Struct Microsoft.WindowsAPICodePack.Dialogs.TaskDialogNativeMethods+IconUnion: AutoLayout, AnsiClass, Class, NestedAssembly, ExplicitLayout, Sealed, AutoClass, BeforeFieldInit
+  :System.ValueType
+    Void .ctor(Int32): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    IntPtr MainIcon 'get ' : 
+  Methods:
+    get_MainIcon(): PrivateScope, Public, HideBySig, SpecialName
+Struct Microsoft.WindowsAPICodePack.Dialogs.TaskDialogNativeMethods+TaskDialogButton: AutoLayout, AnsiClass, Class, NestedAssembly, SequentialLayout, Sealed, AutoClass, BeforeFieldInit
+  :System.ValueType
+    Void .ctor(Int32, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 buttonId : Assembly
+    System.String buttonText : Assembly, HasFieldMarshal
+Struct Microsoft.WindowsAPICodePack.Dialogs.TaskDialogNativeMethods+TaskDialogCommonButtons: AutoLayout, AnsiClass, Class, NestedAssembly, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    TaskDialogCommonButtons Ok = 1 : Public, Static, Literal, HasDefault
+    TaskDialogCommonButtons Yes = 2 : Public, Static, Literal, HasDefault
+    TaskDialogCommonButtons No = 4 : Public, Static, Literal, HasDefault
+    TaskDialogCommonButtons Cancel = 8 : Public, Static, Literal, HasDefault
+    TaskDialogCommonButtons Retry = 16 : Public, Static, Literal, HasDefault
+    TaskDialogCommonButtons Close = 32 : Public, Static, Literal, HasDefault
+Struct Microsoft.WindowsAPICodePack.Dialogs.TaskDialogNativeMethods+TaskDialogCommonButtonReturnIds: AutoLayout, AnsiClass, Class, NestedAssembly, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    TaskDialogCommonButtonReturnIds Ok = 1 : Public, Static, Literal, HasDefault
+    TaskDialogCommonButtonReturnIds Cancel = 2 : Public, Static, Literal, HasDefault
+    TaskDialogCommonButtonReturnIds Abort = 3 : Public, Static, Literal, HasDefault
+    TaskDialogCommonButtonReturnIds Retry = 4 : Public, Static, Literal, HasDefault
+    TaskDialogCommonButtonReturnIds Ignore = 5 : Public, Static, Literal, HasDefault
+    TaskDialogCommonButtonReturnIds Yes = 6 : Public, Static, Literal, HasDefault
+    TaskDialogCommonButtonReturnIds No = 7 : Public, Static, Literal, HasDefault
+    TaskDialogCommonButtonReturnIds Close = 8 : Public, Static, Literal, HasDefault
+Struct Microsoft.WindowsAPICodePack.Dialogs.TaskDialogNativeMethods+TaskDialogElements: AutoLayout, AnsiClass, Class, NestedAssembly, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    TaskDialogElements Content = 0 : Public, Static, Literal, HasDefault
+    TaskDialogElements ExpandedInformation = 1 : Public, Static, Literal, HasDefault
+    TaskDialogElements Footer = 2 : Public, Static, Literal, HasDefault
+    TaskDialogElements MainInstruction = 3 : Public, Static, Literal, HasDefault
+Struct Microsoft.WindowsAPICodePack.Dialogs.TaskDialogNativeMethods+TaskDialogIconElement: AutoLayout, AnsiClass, Class, NestedAssembly, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    TaskDialogIconElement Main = 0 : Public, Static, Literal, HasDefault
+    TaskDialogIconElement Footer = 1 : Public, Static, Literal, HasDefault
+Struct Microsoft.WindowsAPICodePack.Dialogs.TaskDialogNativeMethods+TaskDialogOptions: AutoLayout, AnsiClass, Class, NestedAssembly, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    TaskDialogOptions None = 0 : Public, Static, Literal, HasDefault
+    TaskDialogOptions EnableHyperlinks = 1 : Public, Static, Literal, HasDefault
+    TaskDialogOptions UseMainIcon = 2 : Public, Static, Literal, HasDefault
+    TaskDialogOptions UseFooterIcon = 4 : Public, Static, Literal, HasDefault
+    TaskDialogOptions AllowCancel = 8 : Public, Static, Literal, HasDefault
+    TaskDialogOptions UseCommandLinks = 16 : Public, Static, Literal, HasDefault
+    TaskDialogOptions UseNoIconCommandLinks = 32 : Public, Static, Literal, HasDefault
+    TaskDialogOptions ExpandFooterArea = 64 : Public, Static, Literal, HasDefault
+    TaskDialogOptions ExpandedByDefault = 128 : Public, Static, Literal, HasDefault
+    TaskDialogOptions CheckVerificationFlag = 256 : Public, Static, Literal, HasDefault
+    TaskDialogOptions ShowProgressBar = 512 : Public, Static, Literal, HasDefault
+    TaskDialogOptions ShowMarqueeProgressBar = 1024 : Public, Static, Literal, HasDefault
+    TaskDialogOptions UseCallbackTimer = 2048 : Public, Static, Literal, HasDefault
+    TaskDialogOptions PositionRelativeToWindow = 4096 : Public, Static, Literal, HasDefault
+    TaskDialogOptions RightToLeftLayout = 8192 : Public, Static, Literal, HasDefault
+    TaskDialogOptions NoDefaultRadioButton = 16384 : Public, Static, Literal, HasDefault
+Struct Microsoft.WindowsAPICodePack.Dialogs.TaskDialogNativeMethods+TaskDialogMessages: AutoLayout, AnsiClass, Class, NestedAssembly, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    TaskDialogMessages NavigatePage = 1125 : Public, Static, Literal, HasDefault
+    TaskDialogMessages ClickButton = 1126 : Public, Static, Literal, HasDefault
+    TaskDialogMessages SetMarqueeProgressBar = 1127 : Public, Static, Literal, HasDefault
+    TaskDialogMessages SetProgressBarState = 1128 : Public, Static, Literal, HasDefault
+    TaskDialogMessages SetProgressBarRange = 1129 : Public, Static, Literal, HasDefault
+    TaskDialogMessages SetProgressBarPosition = 1130 : Public, Static, Literal, HasDefault
+    TaskDialogMessages SetProgressBarMarquee = 1131 : Public, Static, Literal, HasDefault
+    TaskDialogMessages SetElementText = 1132 : Public, Static, Literal, HasDefault
+    TaskDialogMessages ClickRadioButton = 1134 : Public, Static, Literal, HasDefault
+    TaskDialogMessages EnableButton = 1135 : Public, Static, Literal, HasDefault
+    TaskDialogMessages EnableRadioButton = 1136 : Public, Static, Literal, HasDefault
+    TaskDialogMessages ClickVerification = 1137 : Public, Static, Literal, HasDefault
+    TaskDialogMessages UpdateElementText = 1138 : Public, Static, Literal, HasDefault
+    TaskDialogMessages SetButtonElevationRequiredState = 1139 : Public, Static, Literal, HasDefault
+    TaskDialogMessages UpdateIcon = 1140 : Public, Static, Literal, HasDefault
+Struct Microsoft.WindowsAPICodePack.Dialogs.TaskDialogNativeMethods+TaskDialogNotifications: AutoLayout, AnsiClass, Class, NestedAssembly, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    TaskDialogNotifications Created = 0 : Public, Static, Literal, HasDefault
+    TaskDialogNotifications Navigated = 1 : Public, Static, Literal, HasDefault
+    TaskDialogNotifications ButtonClicked = 2 : Public, Static, Literal, HasDefault
+    TaskDialogNotifications HyperlinkClicked = 3 : Public, Static, Literal, HasDefault
+    TaskDialogNotifications Timer = 4 : Public, Static, Literal, HasDefault
+    TaskDialogNotifications Destroyed = 5 : Public, Static, Literal, HasDefault
+    TaskDialogNotifications RadioButtonClicked = 6 : Public, Static, Literal, HasDefault
+    TaskDialogNotifications Constructed = 7 : Public, Static, Literal, HasDefault
+    TaskDialogNotifications VerificationClicked = 8 : Public, Static, Literal, HasDefault
+    TaskDialogNotifications Help = 9 : Public, Static, Literal, HasDefault
+    TaskDialogNotifications ExpandButtonClicked = 10 : Public, Static, Literal, HasDefault
+Class Microsoft.WindowsAPICodePack.Dialogs.TaskDialogNativeMethods+TaskDialogCallback: AutoLayout, AnsiClass, Class, NestedAssembly, Sealed
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Invoke(IntPtr, UInt32, IntPtr, IntPtr, IntPtr): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    BeginInvoke(IntPtr, UInt32, IntPtr, IntPtr, IntPtr, AsyncCallback, Object): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Struct Microsoft.WindowsAPICodePack.Dialogs.TaskDialogNativeMethods+ProgressBarState: AutoLayout, AnsiClass, Class, NestedAssembly, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    ProgressBarState Normal = 1 : Public, Static, Literal, HasDefault
+    ProgressBarState Error = 2 : Public, Static, Literal, HasDefault
+    ProgressBarState Paused = 3 : Public, Static, Literal, HasDefault
+Struct Microsoft.WindowsAPICodePack.Dialogs.TaskDialogNativeMethods+TaskDialogIcons: AutoLayout, AnsiClass, Class, NestedAssembly, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    TaskDialogIcons Warning = 65535 : Public, Static, Literal, HasDefault
+    TaskDialogIcons Error = 65534 : Public, Static, Literal, HasDefault
+    TaskDialogIcons Information = 65533 : Public, Static, Literal, HasDefault
+    TaskDialogIcons Shield = 65532 : Public, Static, Literal, HasDefault
+Class Microsoft.WindowsAPICodePack.ApplicationServices.AppRestartRecoveryNativeMethods+InternalRecoveryCallback: AutoLayout, AnsiClass, Class, NestedAssembly, Sealed
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Invoke(IntPtr): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    BeginInvoke(IntPtr, AsyncCallback, Object): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Struct Microsoft.WindowsAPICodePack.ApplicationServices.PowerManagementNativeMethods+PowerBroadcastSetting: AutoLayout, AnsiClass, Class, NestedPublic, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+  Fields:
+    System.Guid PowerSetting : Public
+    Int32 DataLength : Public
+Struct Microsoft.WindowsAPICodePack.ApplicationServices.PowerManagementNativeMethods+SystemPowerCapabilities: AutoLayout, AnsiClass, Class, NestedPublic, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+  Fields:
+    Boolean PowerButtonPresent : Public, HasFieldMarshal
+    Boolean SleepButtonPresent : Public, HasFieldMarshal
+    Boolean LidPresent : Public, HasFieldMarshal
+    Boolean SystemS1 : Public, HasFieldMarshal
+    Boolean SystemS2 : Public, HasFieldMarshal
+    Boolean SystemS3 : Public, HasFieldMarshal
+    Boolean SystemS4 : Public, HasFieldMarshal
+    Boolean SystemS5 : Public, HasFieldMarshal
+    Boolean HiberFilePresent : Public, HasFieldMarshal
+    Boolean FullWake : Public, HasFieldMarshal
+    Boolean VideoDimPresent : Public, HasFieldMarshal
+    Boolean ApmPresent : Public, HasFieldMarshal
+    Boolean UpsPresent : Public, HasFieldMarshal
+    Boolean ThermalControl : Public, HasFieldMarshal
+    Boolean ProcessorThrottle : Public, HasFieldMarshal
+    Byte ProcessorMinimumThrottle : Public
+    Byte ProcessorMaximumThrottle : Public
+    Boolean FastSystemS4 : Public, HasFieldMarshal
+    Byte[] spare2 : Public, HasFieldMarshal
+    Boolean DiskSpinDown : Public, HasFieldMarshal
+    Byte[] spare3 : Public, HasFieldMarshal
+    Boolean SystemBatteriesPresent : Public, HasFieldMarshal
+    Boolean BatteriesAreShortTerm : Public, HasFieldMarshal
+    BatteryReportingScale[] BatteryScale : Public, HasFieldMarshal
+    SystemPowerState AcOnlineWake : Public
+    SystemPowerState SoftLidWake : Public
+    SystemPowerState RtcWake : Public
+    SystemPowerState MinimumDeviceWakeState : Public
+    SystemPowerState DefaultLowLatencyWake : Public
+Struct Microsoft.WindowsAPICodePack.ApplicationServices.PowerManagementNativeMethods+PowerInformationLevel: AutoLayout, AnsiClass, Class, NestedPublic, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    PowerInformationLevel SystemPowerPolicyAc = 0 : Public, Static, Literal, HasDefault
+    PowerInformationLevel SystemPowerPolicyDc = 1 : Public, Static, Literal, HasDefault
+    PowerInformationLevel VerifySystemPolicyAc = 2 : Public, Static, Literal, HasDefault
+    PowerInformationLevel VerifySystemPolicyDc = 3 : Public, Static, Literal, HasDefault
+    PowerInformationLevel SystemPowerCapabilities = 4 : Public, Static, Literal, HasDefault
+    PowerInformationLevel SystemBatteryState = 5 : Public, Static, Literal, HasDefault
+    PowerInformationLevel SystemPowerStateHandler = 6 : Public, Static, Literal, HasDefault
+    PowerInformationLevel ProcessorStateHandler = 7 : Public, Static, Literal, HasDefault
+    PowerInformationLevel SystemPowerPolicyCurrent = 8 : Public, Static, Literal, HasDefault
+    PowerInformationLevel AdministratorPowerPolicy = 9 : Public, Static, Literal, HasDefault
+    PowerInformationLevel SystemReserveHiberFile = 10 : Public, Static, Literal, HasDefault
+    PowerInformationLevel ProcessorInformation = 11 : Public, Static, Literal, HasDefault
+    PowerInformationLevel SystemPowerInformation = 12 : Public, Static, Literal, HasDefault
+    PowerInformationLevel ProcessorStateHandler2 = 13 : Public, Static, Literal, HasDefault
+    PowerInformationLevel LastWakeTime = 14 : Public, Static, Literal, HasDefault
+    PowerInformationLevel LastSleepTime = 15 : Public, Static, Literal, HasDefault
+    PowerInformationLevel SystemExecutionState = 16 : Public, Static, Literal, HasDefault
+    PowerInformationLevel SystemPowerStateNotifyHandler = 17 : Public, Static, Literal, HasDefault
+    PowerInformationLevel ProcessorPowerPolicyAc = 18 : Public, Static, Literal, HasDefault
+    PowerInformationLevel ProcessorPowerPolicyDc = 19 : Public, Static, Literal, HasDefault
+    PowerInformationLevel VerifyProcessorPowerPolicyAc = 20 : Public, Static, Literal, HasDefault
+    PowerInformationLevel VerifyProcessorPowerPolicyDc = 21 : Public, Static, Literal, HasDefault
+    PowerInformationLevel ProcessorPowerPolicyCurrent = 22 : Public, Static, Literal, HasDefault
+    PowerInformationLevel SystemPowerStateLogging = 23 : Public, Static, Literal, HasDefault
+    PowerInformationLevel SystemPowerLoggingEntry = 24 : Public, Static, Literal, HasDefault
+    PowerInformationLevel SetPowerSettingValue = 25 : Public, Static, Literal, HasDefault
+    PowerInformationLevel NotifyUserPowerSetting = 26 : Public, Static, Literal, HasDefault
+    PowerInformationLevel PowerInformationLevelUnused0 = 27 : Public, Static, Literal, HasDefault
+    PowerInformationLevel PowerInformationLevelUnused1 = 28 : Public, Static, Literal, HasDefault
+    PowerInformationLevel SystemVideoState = 29 : Public, Static, Literal, HasDefault
+    PowerInformationLevel TraceApplicationPowerMessage = 30 : Public, Static, Literal, HasDefault
+    PowerInformationLevel TraceApplicationPowerMessageEnd = 31 : Public, Static, Literal, HasDefault
+    PowerInformationLevel ProcessorPerfStates = 32 : Public, Static, Literal, HasDefault
+    PowerInformationLevel ProcessorIdleStates = 33 : Public, Static, Literal, HasDefault
+    PowerInformationLevel ProcessorCap = 34 : Public, Static, Literal, HasDefault
+    PowerInformationLevel SystemWakeSource = 35 : Public, Static, Literal, HasDefault
+    PowerInformationLevel SystemHiberFileInformation = 36 : Public, Static, Literal, HasDefault
+    PowerInformationLevel TraceServicePowerMessage = 37 : Public, Static, Literal, HasDefault
+    PowerInformationLevel ProcessorLoad = 38 : Public, Static, Literal, HasDefault
+    PowerInformationLevel PowerShutdownNotification = 39 : Public, Static, Literal, HasDefault
+    PowerInformationLevel MonitorCapabilities = 40 : Public, Static, Literal, HasDefault
+    PowerInformationLevel SessionPowerInit = 41 : Public, Static, Literal, HasDefault
+    PowerInformationLevel SessionDisplayState = 42 : Public, Static, Literal, HasDefault
+    PowerInformationLevel PowerRequestCreate = 43 : Public, Static, Literal, HasDefault
+    PowerInformationLevel PowerRequestAction = 44 : Public, Static, Literal, HasDefault
+    PowerInformationLevel GetPowerRequestList = 45 : Public, Static, Literal, HasDefault
+    PowerInformationLevel ProcessorInformationEx = 46 : Public, Static, Literal, HasDefault
+    PowerInformationLevel NotifyUserModeLegacyPowerEvent = 47 : Public, Static, Literal, HasDefault
+    PowerInformationLevel GroupPark = 48 : Public, Static, Literal, HasDefault
+    PowerInformationLevel ProcessorIdleDomains = 49 : Public, Static, Literal, HasDefault
+    PowerInformationLevel WakeTimerList = 50 : Public, Static, Literal, HasDefault
+    PowerInformationLevel SystemHiberFileSize = 51 : Public, Static, Literal, HasDefault
+    PowerInformationLevel PowerInformationLevelMaximum = 52 : Public, Static, Literal, HasDefault
+Struct Microsoft.WindowsAPICodePack.ApplicationServices.PowerManagementNativeMethods+BatteryReportingScale: AutoLayout, AnsiClass, Class, NestedPublic, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+  Fields:
+    UInt32 Granularity : Public
+    UInt32 Capacity : Public
+Struct Microsoft.WindowsAPICodePack.ApplicationServices.PowerManagementNativeMethods+SystemPowerState: AutoLayout, AnsiClass, Class, NestedPublic, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SystemPowerState Unspecified = 0 : Public, Static, Literal, HasDefault
+    SystemPowerState Working = 1 : Public, Static, Literal, HasDefault
+    SystemPowerState Sleeping1 = 2 : Public, Static, Literal, HasDefault
+    SystemPowerState Sleeping2 = 3 : Public, Static, Literal, HasDefault
+    SystemPowerState Sleeping3 = 4 : Public, Static, Literal, HasDefault
+    SystemPowerState Hibernate = 5 : Public, Static, Literal, HasDefault
+    SystemPowerState Shutdown = 6 : Public, Static, Literal, HasDefault
+    SystemPowerState Maximum = 7 : Public, Static, Literal, HasDefault
+Struct Microsoft.WindowsAPICodePack.ApplicationServices.PowerManagementNativeMethods+SystemBatteryState: AutoLayout, AnsiClass, Class, NestedPublic, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+  Fields:
+    Boolean AcOnLine : Public, HasFieldMarshal
+    Boolean BatteryPresent : Public, HasFieldMarshal
+    Boolean Charging : Public, HasFieldMarshal
+    Boolean Discharging : Public, HasFieldMarshal
+    Byte Spare1 : Public
+    Byte Spare2 : Public
+    Byte Spare3 : Public
+    Byte Spare4 : Public
+    UInt32 MaxCapacity : Public
+    UInt32 RemainingCapacity : Public
+    UInt32 Rate : Public
+    UInt32 EstimatedTime : Public
+    UInt32 DefaultAlert1 : Public
+    UInt32 DefaultAlert2 : Public
+Class Microsoft.WindowsAPICodePack.ApplicationServices.MessageManager+PowerRegWindow: AutoLayout, AnsiClass, Class, NestedAssembly, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    RegisterPowerEvent(Guid, EventHandler): PrivateScope, Assembly, HideBySig
+    UnregisterPowerEvent(Guid, EventHandler): PrivateScope, Assembly, HideBySig

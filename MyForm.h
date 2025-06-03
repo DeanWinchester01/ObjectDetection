@@ -1,4 +1,11 @@
 #pragma once
+#include <stdlib.h>
+#include <exception>
+#include <iostream>
+#include <fstream>
+#include <filesystem>
+#include <Windows.h>
+
 
 namespace ObjectDetection {
 
@@ -8,6 +15,11 @@ namespace ObjectDetection {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::IO;
+	using namespace System::Diagnostics;
+	using namespace Microsoft::WindowsAPICodePack::Dialogs;
+	using namespace System::Collections::Generic;
+	using namespace System::Threading;
 
 	/// <summary>
 	/// Summary for MyForm
@@ -22,21 +34,30 @@ namespace ObjectDetection {
 			//TODO: Add the constructor code here
 			//
 		}
-	public:
-		String^ chosenModel;
+		
+
+		   //array<String> folders = {""};
+
+		   String^ chosenModel;
+		   String^ scanImage;
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
 		~MyForm()
 		{
-			if (components)
-			{
-				delete components;
-			}
+			//if (components)
+			//{
+				//delete components;
+			//}
 		}
-	//main menu ui
-	private: 
+		//main menu ui
+	private:
+		List<String^>^ imageClasses = gcnew List<String^>();
+		List<String^>^ folders = gcnew List<String^>();
+		String^ lastDetectedLine;
+		StreamWriter^ py;
+
 		System::Windows::Forms::GroupBox^ mainMenu;
 		System::Windows::Forms::Button^ useModel;
 		System::Windows::Forms::Button^ trainModel;
@@ -48,16 +69,32 @@ namespace ObjectDetection {
 
 		System::Windows::Forms::Label^ selected;
 		System::Windows::Forms::Button^ confirmModel;
+		System::Windows::Forms::Button^ imageSelect;
+		System::Windows::Forms::PictureBox^ chosenImage;
 
 		//train model ui
 		System::Windows::Forms::GroupBox^ train;
+		System::Windows::Forms::Label^ modelNameLabel;
+		System::Windows::Forms::TextBox^ modelName;
+		System::Windows::Forms::Button^ selectImages;
+		System::Windows::Forms::Label^ inputImageClass;
+		System::Windows::Forms::Label^ imageFolder;
+		System::Windows::Forms::Button^ confirmClass;
+
+		System::Windows::Forms::TextBox^ imageClass;
+		System::Windows::Forms::Button^ startTraining;
+
+		System::Windows::Forms::GroupBox^ trainScreen;
+		System::Windows::Forms::Label^ output;
+		System::Windows::Forms::Label^ DetectOutput;
+		System::Windows::Forms::Button^ detect;
 
 		System::Windows::Forms::Button^ back;
-	
+
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		//System::ComponentModel::Container ^components;
 
 		/// <summary>
 		/// Required method for Designer support - do not modify
@@ -66,20 +103,33 @@ namespace ObjectDetection {
 		void InitializeComponent(void)
 		{
 			this->back = (gcnew System::Windows::Forms::Button());
-			//main menu
 			this->mainMenu = (gcnew System::Windows::Forms::GroupBox());
 			this->useModel = (gcnew System::Windows::Forms::Button());
 			this->trainModel = (gcnew System::Windows::Forms::Button());
-			//choose model menu
 			this->models = (gcnew System::Windows::Forms::GroupBox());
+			this->DetectOutput = (gcnew System::Windows::Forms::Label());
+			this->detect = (gcnew System::Windows::Forms::Button());
+			this->chosenImage = (gcnew System::Windows::Forms::PictureBox());
+			this->imageSelect = (gcnew System::Windows::Forms::Button());
 			this->confirmModel = (gcnew System::Windows::Forms::Button());
 			this->selected = (gcnew System::Windows::Forms::Label());
 			this->modelsView = (gcnew System::Windows::Forms::ListView());
 			this->chooseModel = (gcnew System::Windows::Forms::Label());
-			//train model menu
 			this->train = (gcnew System::Windows::Forms::GroupBox());
+			this->confirmClass = (gcnew System::Windows::Forms::Button());
+			this->imageFolder = (gcnew System::Windows::Forms::Label());
+			this->inputImageClass = (gcnew System::Windows::Forms::Label());
+			this->modelNameLabel = (gcnew System::Windows::Forms::Label());
+			this->modelName = (gcnew System::Windows::Forms::TextBox());
+			this->selectImages = (gcnew System::Windows::Forms::Button());
+			this->imageClass = (gcnew System::Windows::Forms::TextBox());
+			this->startTraining = (gcnew System::Windows::Forms::Button());
+			this->output = (gcnew System::Windows::Forms::Label());
+			this->trainScreen = (gcnew System::Windows::Forms::GroupBox());
 			this->mainMenu->SuspendLayout();
 			this->models->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chosenImage))->BeginInit();
+			this->train->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// back
@@ -95,6 +145,7 @@ namespace ObjectDetection {
 			// 
 			// mainMenu
 			// 
+			this->mainMenu->BackColor = System::Drawing::SystemColors::ControlDark;
 			this->mainMenu->Controls->Add(this->useModel);
 			this->mainMenu->Controls->Add(this->trainModel);
 			this->mainMenu->Location = System::Drawing::Point(0, 0);
@@ -133,6 +184,12 @@ namespace ObjectDetection {
 			// 
 			// models
 			// 
+			this->models->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(30)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
+				static_cast<System::Int32>(static_cast<System::Byte>(30)));
+			this->models->Controls->Add(this->DetectOutput);
+			this->models->Controls->Add(this->detect);
+			this->models->Controls->Add(this->chosenImage);
+			this->models->Controls->Add(this->imageSelect);
 			this->models->Controls->Add(this->confirmModel);
 			this->models->Controls->Add(this->selected);
 			this->models->Controls->Add(this->modelsView);
@@ -145,22 +202,59 @@ namespace ObjectDetection {
 			this->models->TabIndex = 0;
 			this->models->TabStop = false;
 			// 
+			// DetectOutput
+			// 
+			this->DetectOutput->AutoSize = true;
+			this->DetectOutput->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->DetectOutput->Location = System::Drawing::Point(946, 721);
+			this->DetectOutput->Name = L"DetectOutput";
+			this->DetectOutput->Size = System::Drawing::Size(0, 31);
+			this->DetectOutput->TabIndex = 8;
+			// 
+			// detect
+			// 
+			this->detect->Location = System::Drawing::Point(1218, 100);
+			this->detect->Name = L"detect";
+			this->detect->Size = System::Drawing::Size(179, 41);
+			this->detect->TabIndex = 7;
+			this->detect->Text = L"Detect";
+			this->detect->UseVisualStyleBackColor = true;
+			this->detect->Click += gcnew System::EventHandler(this, &MyForm::detect_Click);
+			// 
+			// chosenImage
+			// 
+			this->chosenImage->Location = System::Drawing::Point(808, 170);
+			this->chosenImage->Name = L"chosenImage";
+			this->chosenImage->Size = System::Drawing::Size(745, 487);
+			this->chosenImage->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->chosenImage->TabIndex = 6;
+			this->chosenImage->TabStop = false;
+			// 
+			// imageSelect
+			// 
+			this->imageSelect->Location = System::Drawing::Point(879, 100);
+			this->imageSelect->Name = L"imageSelect";
+			this->imageSelect->Size = System::Drawing::Size(179, 41);
+			this->imageSelect->TabIndex = 5;
+			this->imageSelect->Text = L"Select image";
+			this->imageSelect->UseVisualStyleBackColor = true;
+			this->imageSelect->Click += gcnew System::EventHandler(this, &MyForm::imageSelect_Click);
+			// 
 			// confirmModel
 			// 
 			this->confirmModel->BackColor = System::Drawing::Color::Lime;
-			this->confirmModel->Location = System::Drawing::Point(1100, 952);
+			this->confirmModel->Location = System::Drawing::Point(308, 54);
 			this->confirmModel->Name = L"confirmModel";
 			this->confirmModel->Size = System::Drawing::Size(154, 40);
-			this->confirmModel->TabIndex = 4;
+			this->confirmModel->TabIndex = 8;
 			this->confirmModel->Text = L"Confirm";
 			this->confirmModel->UseVisualStyleBackColor = false;
-			this->confirmModel->Visible = false;
 			this->confirmModel->Click += gcnew System::EventHandler(this, &MyForm::confirmModel_click);
 			// 
 			// selected
 			// 
 			this->selected->AutoSize = true;
-			this->selected->Location = System::Drawing::Point(876, 917);
+			this->selected->Location = System::Drawing::Point(600, 917);
 			this->selected->Name = L"selected";
 			this->selected->Size = System::Drawing::Size(0, 31);
 			this->selected->TabIndex = 3;
@@ -168,7 +262,7 @@ namespace ObjectDetection {
 			// modelsView
 			// 
 			this->modelsView->HideSelection = false;
-			this->modelsView->Location = System::Drawing::Point(112, 37);
+			this->modelsView->Location = System::Drawing::Point(112, 100);
 			this->modelsView->MultiSelect = false;
 			this->modelsView->Name = L"modelsView";
 			this->modelsView->Scrollable = false;
@@ -181,6 +275,7 @@ namespace ObjectDetection {
 			// chooseModel
 			// 
 			this->chooseModel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
+			this->chooseModel->ForeColor = System::Drawing::SystemColors::ButtonFace;
 			this->chooseModel->Location = System::Drawing::Point(829, 9);
 			this->chooseModel->Name = L"chooseModel";
 			this->chooseModel->Size = System::Drawing::Size(288, 50);
@@ -189,11 +284,135 @@ namespace ObjectDetection {
 			// 
 			// train
 			// 
+			this->train->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(30)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
+				static_cast<System::Int32>(static_cast<System::Byte>(30)));
+			this->train->Controls->Add(this->confirmClass);
+			this->train->Controls->Add(this->imageFolder);
+			this->train->Controls->Add(this->inputImageClass);
+			this->train->Controls->Add(this->modelNameLabel);
+			this->train->Controls->Add(this->modelName);
+			this->train->Controls->Add(this->selectImages);
+			this->train->Controls->Add(this->imageClass);
+			this->train->Controls->Add(this->startTraining);
+			this->train->Controls->Add(this->output);
 			this->train->Location = System::Drawing::Point(0, 0);
 			this->train->Name = L"train";
 			this->train->Size = System::Drawing::Size(1920, 1080);
 			this->train->TabIndex = 0;
 			this->train->TabStop = false;
+			// 
+			// confirmClass
+			// 
+			this->confirmClass->AutoSize = true;
+			this->confirmClass->BackColor = System::Drawing::Color::Lime;
+			this->confirmClass->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
+			this->confirmClass->ForeColor = System::Drawing::Color::Black;
+			this->confirmClass->Location = System::Drawing::Point(94, 621);
+			this->confirmClass->Name = L"confirmClass";
+			this->confirmClass->Size = System::Drawing::Size(140, 35);
+			this->confirmClass->TabIndex = 4;
+			this->confirmClass->Text = L"Confirm class";
+			this->confirmClass->UseVisualStyleBackColor = false;
+			this->confirmClass->Click += gcnew System::EventHandler(this, &MyForm::confirmClass_Click);
+			// 
+			// imageFolder
+			// 
+			this->imageFolder->AutoSize = true;
+			this->imageFolder->BackColor = System::Drawing::Color::White;
+			this->imageFolder->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
+			this->imageFolder->Location = System::Drawing::Point(89, 500);
+			this->imageFolder->Name = L"imageFolder";
+			this->imageFolder->Size = System::Drawing::Size(0, 25);
+			this->imageFolder->TabIndex = 3;
+			// 
+			// inputImageClass
+			// 
+			this->inputImageClass->AutoSize = true;
+			this->inputImageClass->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->inputImageClass->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
+			this->inputImageClass->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->inputImageClass->Location = System::Drawing::Point(86, 249);
+			this->inputImageClass->Name = L"inputImageClass";
+			this->inputImageClass->Size = System::Drawing::Size(225, 31);
+			this->inputImageClass->TabIndex = 2;
+			this->inputImageClass->Text = L"Input image class";
+			// 
+			// modelNameLabel
+			// 
+			this->modelNameLabel->AutoSize = true;
+			this->modelNameLabel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->modelNameLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
+			this->modelNameLabel->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->modelNameLabel->Location = System::Drawing::Point(823, 58);
+			this->modelNameLabel->Name = L"modelNameLabel";
+			this->modelNameLabel->Size = System::Drawing::Size(226, 31);
+			this->modelNameLabel->TabIndex = 0;
+			this->modelNameLabel->Text = L"Name your model";
+			// 
+			// modelName
+			// 
+			this->modelName->AcceptsReturn = true;
+			this->modelName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
+			this->modelName->Location = System::Drawing::Point(846, 112);
+			this->modelName->Name = L"modelName";
+			this->modelName->Size = System::Drawing::Size(182, 30);
+			this->modelName->TabIndex = 0;
+			// 
+			// selectImages
+			// 
+			this->selectImages->AutoSize = true;
+			this->selectImages->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->selectImages->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
+			this->selectImages->ForeColor = System::Drawing::SystemColors::ButtonFace;
+			this->selectImages->Location = System::Drawing::Point(92, 431);
+			this->selectImages->Name = L"selectImages";
+			this->selectImages->Size = System::Drawing::Size(194, 41);
+			this->selectImages->TabIndex = 0;
+			this->selectImages->Text = L"Select images";
+			this->selectImages->UseVisualStyleBackColor = false;
+			this->selectImages->Click += gcnew System::EventHandler(this, &MyForm::selectImages_Click);
+			// 
+			// imageClass
+			// 
+			this->imageClass->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
+			this->imageClass->Location = System::Drawing::Point(92, 317);
+			this->imageClass->Name = L"imageClass";
+			this->imageClass->Size = System::Drawing::Size(219, 30);
+			this->imageClass->TabIndex = 1;
+			// 
+			// startTraining
+			// 
+			this->startTraining->AutoSize = true;
+			this->startTraining->BackColor = System::Drawing::Color::Lime;
+			this->startTraining->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
+			this->startTraining->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->startTraining->Location = System::Drawing::Point(846, 765);
+			this->startTraining->Name = L"startTraining";
+			this->startTraining->Size = System::Drawing::Size(189, 66);
+			this->startTraining->TabIndex = 0;
+			this->startTraining->Text = L"Start training";
+			this->startTraining->UseVisualStyleBackColor = false;
+			this->startTraining->Click += gcnew System::EventHandler(this, &MyForm::startTraining_Click);
+			// 
+			// output
+			// 
+			this->output->AutoSize = true;
+			this->output->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
+			this->output->Location = System::Drawing::Point(1050, 160);
+			this->output->Name = L"output";
+			this->output->Size = System::Drawing::Size(0, 31);
+			this->output->TabIndex = 0;
+			// 
+			// trainScreen
+			// 
+			this->trainScreen->Location = System::Drawing::Point(0, 0);
+			this->trainScreen->Name = L"trainScreen";
+			this->trainScreen->Size = System::Drawing::Size(200, 100);
+			this->trainScreen->TabIndex = 0;
+			this->trainScreen->TabStop = false;
 			// 
 			// MyForm
 			// 
@@ -206,48 +425,151 @@ namespace ObjectDetection {
 			this->mainMenu->ResumeLayout(false);
 			this->models->ResumeLayout(false);
 			this->models->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chosenImage))->EndInit();
+			this->train->ResumeLayout(false);
+			this->train->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
+		Button^ ModelButton(String^ modelAddress, int i) {
+			array<String^>^ addressParts = modelAddress->Split('\\');
+			String^ lastPart = addressParts[addressParts->Length - 1];
+			String^ modelName = lastPart->Substring(0, lastPart->Length - 3);
+
+			Button^ model = gcnew System::Windows::Forms::Button();
+			model->AutoSize = true;
+			model->TabIndex = 2;
+			model->UseVisualStyleBackColor = true;
+			model->Name = i.ToString();
+			model->Text = L"" + modelName + "";
+			model->Size = System::Drawing::Size(200, 50);
+			model->Location = System::Drawing::Point(122, 65 + i * model->Size.Height + 5);
+
+			return model;
+		}
+
+		void DisplayClasses() {
+			for (int i = 0; i < imageClasses->Count; i++) {
+				//remove old labels
+				train->Controls->RemoveByKey(imageClasses[i]);
+				train->Controls->RemoveByKey(folders[i]);
+			}
+
+			//add new labels
+			for (int i = 0; i < imageClasses->Count; i++) {
+				Label^ classLabel = gcnew System::Windows::Forms::Label();
+				Label^ addressLabel = gcnew System::Windows::Forms::Label();
+
+				classLabel->BackColor = System::Drawing::Color::Lime;
+				classLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
+				classLabel->Location = System::Drawing::Point(454, 249 + 130 * i);
+				classLabel->Name = imageClasses[i];
+				classLabel->Size = System::Drawing::Size(219, 30);
+				classLabel->TabIndex = 2;
+				classLabel->Text = L"Label: " + imageClasses[i];
+				classLabel->AutoSize = true;
+
+				addressLabel->BackColor = System::Drawing::Color::Lime;
+				addressLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
+				addressLabel->Location = System::Drawing::Point(454, 293 + 130 * i);
+				addressLabel->Name = folders[i];
+				addressLabel->Size = System::Drawing::Size(219, 30);
+				addressLabel->TabIndex = 2;
+				addressLabel->Text = L"Folder: " + folders[i];
+				addressLabel->AutoSize = true;
+
+
+				this->train->Controls->Add(classLabel);
+				this->train->Controls->Add(addressLabel);
+			}
+		}
+
 		System::Void useModel_Click(System::Object^ sender, System::EventArgs^ e) {
+			//show new screen with available models
 			this->Controls->Remove(this->mainMenu);
 			this->Controls->Add(this->models);
 
-			if(this->train->Controls->Contains(back))
+			if (this->train->Controls->Contains(back))
 				this->train->Controls->Remove(back);
 
 			if (!this->models->Controls->Contains(back))
 				this->models->Controls->Add(back);
 
-			for (int i = 0; i < 5; i++) {
-				Button^ model = gcnew System::Windows::Forms::Button();
-				model->TabIndex = 2;
-				model->UseVisualStyleBackColor = true;
-				model->Name = i.ToString();
-				model->Text = L"a model";
-				model->Size = System::Drawing::Size(200, 50);
-				model->Location = System::Drawing::Point(122, 49+ i * model->Size.Height + 5);
+			//read in models
+			String^ currentPlace = Directory::GetCurrentDirectory();
+			array<String^>^ files = Directory::GetFiles(currentPlace + "\\Models");
+
+			//make new buttons
+			for (int i = 0; i < files->Length; i++) {
+				if (!files[i]->EndsWith(".pt")) continue;
+
+				Button^ model = ModelButton(files[i], i);
 				model->Click += gcnew System::EventHandler(this, &MyForm::modelSelected);
-				//model->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 				this->models->Controls->Add(model);
 			}
+
+			String^ pythonExe = "C:\\Program Files\\Python310\\python.exe";
+			//configure process
+			Process^ detect = gcnew Process();
+			detect->StartInfo->FileName = pythonExe;
+			detect->StartInfo->Arguments = "image_detect.py";
+			detect->StartInfo->UseShellExecute = false;
+			detect->StartInfo->RedirectStandardOutput = true;
+			detect->StartInfo->RedirectStandardError = true;
+			detect->StartInfo->CreateNoWindow = true; // Optional
+			detect->EnableRaisingEvents = true;
+			detect->StartInfo->RedirectStandardInput = true;
+
+			//read python output
+			detect->OutputDataReceived += gcnew DataReceivedEventHandler(this, &MyForm::DetectionOutputHandler);
+			detect->ErrorDataReceived += gcnew DataReceivedEventHandler(this, &MyForm::DetectionOutputHandler);
+			detect->Start();
+			detect->BeginOutputReadLine();
+			detect->BeginErrorReadLine();
+			py = detect->StandardInput;
 		}
 
 		System::Void modelSelected(System::Object^ sender, System::EventArgs^ e) {
 			Button^ clickedButton = dynamic_cast<Button^>(sender);
 			this->confirmModel->Visible = true;
-			this->selected->Text = "Selected model: " + clickedButton->Name;
+			this->selected->Text = "Selected model: " + clickedButton->Text;
 			//MessageBox::Show(clickedButton->Name);
 		}
 		System::Void confirmModel_click(System::Object^ sender, System::EventArgs^ e) {
 			String^ subString = "Selected model: ";
+			if (this->selected->Text->Length < subString->Length) {
+				MessageBox::Show("Please select a model");
+				return;
+			}
 			chosenModel = this->selected->Text->Substring(subString->Length);
-			MessageBox::Show(chosenModel);
 		}
 
 		System::Void trainModel_Click(System::Object^ sender, System::EventArgs^ e) {
+			this->Controls->Remove(mainMenu);
 			this->models->Controls->Remove(back);
+			this->Controls->Add(this->train);
 			this->train->Controls->Add(back);
+
+			//activate new python process
+			String^ pythonExe = "C:\\Program Files\\Python310\\python.exe";
+			//configure process
+			Process^ train = gcnew Process();
+			train->StartInfo->FileName = pythonExe;
+			train->StartInfo->Arguments = "image_train.py";
+			train->StartInfo->UseShellExecute = false;
+			train->StartInfo->RedirectStandardOutput = true;
+			train->StartInfo->RedirectStandardError = true;
+			train->StartInfo->CreateNoWindow = true; // Optional
+			train->EnableRaisingEvents = true;
+			train->StartInfo->RedirectStandardInput = true;
+
+			//read python output
+			train->OutputDataReceived += gcnew DataReceivedEventHandler(this, &MyForm::SortOutputHandler);
+			train->ErrorDataReceived += gcnew DataReceivedEventHandler(this, &MyForm::SortOutputHandler);
+			train->Start();
+			train->BeginOutputReadLine();
+			train->BeginErrorReadLine();
+			py = train->StandardInput;
 		}
 		System::Void back_Click(System::Object^ sender, System::EventArgs^ e) {
 			if (this->Controls->Contains(models))
@@ -255,7 +577,120 @@ namespace ObjectDetection {
 			if (this->Controls->Contains(train))
 				this->Controls->Remove(train);
 
+			if (py != nullptr)
+				py->Close();
 			this->Controls->Add(mainMenu);
+		}
+		System::Void selectImages_Click(System::Object^ sender, System::EventArgs^ e) {
+			CommonOpenFileDialog^ dialog = gcnew CommonOpenFileDialog();
+			dialog->IsFolderPicker = true;
+
+			if (dialog->ShowDialog() != CommonFileDialogResult::Ok) return;
+			imageFolder->Text = dialog->FileName;
+		}
+		System::Void confirmClass_Click(System::Object^ sender, System::EventArgs^ e) {
+			imageClasses->Add(imageClass->Text);
+			folders->Add(imageFolder->Text);
+
+			DisplayClasses();
+		}
+		//
+		//training begins
+		//
+		System::Void startTraining_Click(System::Object^ sender, System::EventArgs^ e) {
+
+			//output->Text = "";
+			this->output->Text += "\nStarting training";
+			this->output->Size = System::Drawing::Size(86, 31);
+			this->output->Location = System::Drawing::Point(1050, 160);
+			//old method of giving data
+			//File::WriteAllText("Data.txt", content);
+			String^ name = modelName->Text+"\"";
+			py->WriteLine(name+"\"");
+
+			for (int i = 0; i < folders->Count; i++) {
+				name += folders[i] + "\"" + imageClasses[i] + "\"";
+				//py->WriteLine(folders[i]+":"+imageClasses[i]+"_");
+				//py->WriteLine(imageClasses[i]);
+				//py->WriteLine("");
+			}
+			Clipboard::SetText(name);
+			this->output->Text += "\nFlushed to python";
+			py->Flush();
+		}
+
+		void SortOutputHandler(System::Object^ sendingProcess, DataReceivedEventArgs^ outLine){
+			if (outLine->Data == nullptr) return;
+			float currentSize = this->output->Size.Height;
+			this->output->Text += "\n" + outLine->Data;
+			float newSize = this->output->Size.Height;
+
+			array<String^>^ lines = this->output->Text->Split('\n');
+			if (lines->Length > 15) {
+				float yPos = this->output->Location.Y;
+				float xPos = this->output->Location.X;
+				this->output->Location = System::Drawing::Point(xPos, yPos - (newSize - currentSize));
+			}
+		}
+
+		System::Void imageSelect_Click(System::Object^ sender, System::EventArgs^ e) {
+			CommonOpenFileDialog^ dialog = gcnew CommonOpenFileDialog();
+			dialog->IsFolderPicker = false;
+			dialog->Filters->Add(gcnew CommonFileDialogFilter("Image Files", "*.jpg;*.jpeg;*.png;*dicm"));
+			
+
+			if (dialog->ShowDialog() != CommonFileDialogResult::Ok) return;
+			String^ name = dialog->FileName;
+			Bitmap^ img;
+			try {
+
+				img = gcnew Bitmap(name);
+			}
+			catch (Exception^ e) {
+				MessageBox::Show("File failed to be opened, it is likely corrupted\n"+e->ToString());
+				//MessageBox::Show(e->ToString());
+				return;
+			}
+			chosenImage->Image = img;
+			scanImage = name;
+		}
+
+		System::Void detect_Click(System::Object^ sender, System::EventArgs^ e) {
+			this->DetectOutput->Text = "";
+			if (chosenModel == "") {
+				MessageBox::Show("please select a model to use");
+				return;
+			}
+			if (scanImage == "") {
+				MessageBox::Show("please select an image to scan");
+				return;
+			}
+
+			py->WriteLine(chosenModel + "," + scanImage);
+			py->Flush();
+		}
+		void DetectionOutputHandler(System::Object^ sendingProcess,
+			DataReceivedEventArgs^ outLine) {
+			if (outLine->Data == nullptr) return;
+			String^ data = outLine->Data;
+			
+			//System::Windows::Forms::Clipboard::SetText(outLine->Data);
+			//MessageBox::Show("got stuff "+outLine->Data+ " with length of "+outLine->Data->Length);
+			//if (outLine->Data == "") {
+				//MessageBox::Show("empty data dont know why");
+			//}
+			//MessageBox::Show(outLine->Data);
+			//if (outLine->Data == "Waiting for image") {
+				
+				//return;
+			//}
+			
+			MessageBox::Show(data);
+			String^ detect = "Detected: ";
+			if (data->Contains(detect)) {
+				this->DetectOutput->Text = outLine->Data;
+				
+			}
 		}
 	};
 }

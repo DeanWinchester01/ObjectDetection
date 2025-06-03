@@ -1,3 +1,9 @@
 C:\Users\Dean Winchester\source\repos\ObjectDetection\ObjectDetection\x64\Debug\ObjectDetection.vcxproj.AssemblyReference.cache
 C:\Users\Dean Winchester\source\repos\ObjectDetection\ObjectDetection\x64\Debug\ObjectDetection.vcxproj.GenerateResource.cache
 C:\Users\Dean Winchester\source\repos\ObjectDetection\ObjectDetection\x64\Debug\ObjectDetection.MyForm.resources
+C:\Users\Dean Winchester\Desktop\AI app\ObjectDetection\x64\Debug\ObjectDetection.vcxproj.AssemblyReference.cache
+C:\Users\Dean Winchester\Desktop\AI app\ObjectDetection\x64\Debug\ObjectDetection.MyForm.resources
+C:\Users\Dean Winchester\Desktop\AI app\ObjectDetection\x64\Debug\ObjectDetection.vcxproj.GenerateResource.cache
+C:\Users\Dean Winchester\Desktop\AI app\x64\Debug\Microsoft.WindowsAPICodePack.xml
+C:\Users\Dean Winchester\Desktop\AI app\x64\Debug\Microsoft.WindowsAPICodePack.Shell.xml
+C:\Users\Dean Winchester\Desktop\AI app\ObjectDetection\x64\Debug\ObjectDe.A14E2FEC.Up2Date
