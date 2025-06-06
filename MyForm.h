@@ -206,7 +206,8 @@ namespace ObjectDetection {
 			// 
 			this->DetectOutput->AutoSize = true;
 			this->DetectOutput->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->DetectOutput->Location = System::Drawing::Point(946, 721);
+			//this->DetectOutput->Location = System::Drawing::Point(946, 721);
+			this->DetectOutput->Location = System::Drawing::Point(500, 100);
 			this->DetectOutput->Name = L"DetectOutput";
 			this->DetectOutput->Size = System::Drawing::Size(0, 31);
 			this->DetectOutput->TabIndex = 8;
@@ -512,7 +513,7 @@ namespace ObjectDetection {
 			//configure process
 			Process^ detect = gcnew Process();
 			detect->StartInfo->FileName = pythonExe;
-			detect->StartInfo->Arguments = "image_detect.py";
+			detect->StartInfo->Arguments = "image_detect2.py";
 			detect->StartInfo->UseShellExecute = false;
 			detect->StartInfo->RedirectStandardOutput = true;
 			detect->StartInfo->RedirectStandardError = true;
@@ -690,10 +691,10 @@ namespace ObjectDetection {
 				//return;
 			//}
 			
-			MessageBox::Show(data);
+			//MessageBox::Show(data);
 			String^ detect = "Detected: ";
 			if (data->Contains(detect)) {
-				this->DetectOutput->Text = outLine->Data;
+				this->DetectOutput->Text += outLine->Data+"\n";
 				
 			}
 		}

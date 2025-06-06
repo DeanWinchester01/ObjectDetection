@@ -1,0 +1,7 @@
+.git/
+.vs/
+_pycache_
+test2/
+test3/
+testimages/
+ObjectDetection/
