@@ -154,32 +154,63 @@ while True:
     optimizer = optim.Adam(model.parameters(), lr=0.001)
     
     # Train the model
-    print("Starting training", flush=True)
+    #print("Starting training", flush=True)
     train_model(model, train_loader, criterion, optimizer, device, num_epochs=10)
-    print("Training complete", flush=True)
+    #print("Training complete", flush=True)
 
     #saveName = "Models\\temp.pt"
     #//torch.save(model.state_dict(), saveName)
+    modelPkl = "Models\\" + oldModel + ".pkl"
+    modelPt = "Models\\" + oldModel + ".pt"
+    #print("Model name: "+ modelAddress, flush=True)
+    #print("pkl name: "+ modelPkl, flush=True)
+    #print("Got all data, processing image", flush=True)
 
+    with open(modelPkl, "rb") as label:
+        old_label_encoder = pickle.load(label)
 
+    newLabelEncoder = LabelEncoder()
+    newLabelEncoder.fit(label_encoder.classes_ + old_label_encoder.classes_)  # Fit the new label encoder with the new classes
+    #combinedLabels = old_label_encoder.classes_.tolist() + label_encoder.classes_.tolist()
+    
+    with open(modelPkl, "wb") as f:
+        pickle.dump(newLabelEncoder, f)
+    
+    oldmodel = CNNModel(num_classes=len(old_label_encoder.classes_)+len(label_encoder.classes_)).to(device)
+    old_state = torch.load(modelPt, map_location=device)
+    oldmodel.load_state_dict(old_state)  # Load the old model state_dict
+
+    new_state = model.state_dict()  # Get the new model state_dict
+    merged_state = oldmodel.state_dict()
+
+    merged_state.update(new_state)  # Update the old model with the new model's state_dict
+    oldmodel.load_state_dict(merged_state)  # Load the merged state_dict into the old model
+    torch.save(oldmodel.state_dict(), modelPt)  # Save the updated model state_dict
+    """
+    oldmodel.load_state_dict(torch.load(modelPt, weights_only=False))
+    oldmodel.state_dict().update(model.state_dict())  # Update the old model with the new model's state_dict
+    #oldModel.state_dict().update(model.state_dict())  # Update the old model with the new model's state_dict
+    print(oldmodel, flush=True)
+    """
+    """
     oldLabelEncoder = "Models\\" + oldModel + ".pkl"
     oldModelPt = "Models\\" + oldModel + ".pt"
     newEncoder = ""
     with open(oldLabelEncoder, "rb") as f:
         labelEncoder = pickle.load(f)
         newEncoder = LabelEncoder()
-        newEncoder.fit(labelEncoder.classes_+ label_encoder)  # Fit the new label encoder with the old classes
+        newEncoder.fit(labelEncoder.classes_+ label_encoder.classes_)  # Fit the new label encoder with the old classes
         #label_encoder.fit(labelEncoder.classes_)  # Ensure the label encoder is fitted with the same classes
         oldModel = CNNModel(num_classes=len(labelEncoder.classes_)).to(device)
 
-    oldModel.load_state_dict(torch.load(oldModelPt, map_location=device, weights_only=True))
-    newModel = oldModel.state_dict() | (model.state_dict())
-    print(newModel)
-    #"""
+    oldModel.load_state_dict(torch.load(oldModelPt, map_location=device, weights_only=False))
+    #newModel = oldModel.state_dict() | (model.state_dict())
+    oldModel.state_dict().update(model.state_dict())  # Update the old model with the new model's state_dict
+    print(oldModel)
     #newModel = oldModel.state_dict() + model.state_dict()
 
-    torch.save(newModel, oldModelPt)
-    with open(newEncoder, "wb") as f:
-        pickle.dump(label_encoder, f)
+    torch.save(oldModel, oldModelPt)
+    with open(oldLabelEncoder, "wb") as f:
+        pickle.dump(newEncoder, f)
     print("Model and label encoder saved", flush=True)
     #"""

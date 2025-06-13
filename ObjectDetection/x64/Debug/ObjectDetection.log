@@ -1,1 +1,4 @@
-﻿  ObjectDetection.vcxproj -> C:\Users\Dean Winchester\Desktop\AI app\x64\Debug\ObjectDetection.exe
+﻿  Source.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\filesystem(12): warning STL4038: The contents of <filesystem> are available only with C++17 or later.
+  Source.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  ObjectDetection.vcxproj -> C:\Users\Dean Winchester\Desktop\AI app\x64\Debug\ObjectDetection.exe

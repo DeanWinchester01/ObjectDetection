@@ -5,7 +5,9 @@
 #include <fstream>
 #include <filesystem>
 #include <Windows.h>
-
+#include <string>
+#include <unordered_map>
+#include <msclr/marshal_cppstd.h>
 
 namespace ObjectDetection {
 
@@ -57,6 +59,7 @@ namespace ObjectDetection {
 		List<String^>^ folders = gcnew List<String^>();
 		String^ lastDetectedLine;
 		StreamWriter^ py;
+		Bitmap^ img;
 
 		System::Windows::Forms::GroupBox^ mainMenu;
 		System::Windows::Forms::Button^ useModel;
@@ -534,7 +537,6 @@ namespace ObjectDetection {
 			Button^ clickedButton = dynamic_cast<Button^>(sender);
 			this->confirmModel->Visible = true;
 			this->selected->Text = "Selected model: " + clickedButton->Text;
-			//MessageBox::Show(clickedButton->Name);
 		}
 		System::Void confirmModel_click(System::Object^ sender, System::EventArgs^ e) {
 			String^ subString = "Selected model: ";
@@ -600,20 +602,14 @@ namespace ObjectDetection {
 		//
 		System::Void startTraining_Click(System::Object^ sender, System::EventArgs^ e) {
 
-			//output->Text = "";
 			this->output->Text += "\nStarting training";
 			this->output->Size = System::Drawing::Size(86, 31);
 			this->output->Location = System::Drawing::Point(1050, 160);
-			//old method of giving data
-			//File::WriteAllText("Data.txt", content);
+
 			String^ name = modelName->Text+",";
-			//py->WriteLine(name+"\"");
 
 			for (int i = 0; i < folders->Count; i++) {
 				name += folders[i] + "\"" + imageClasses[i] + "\"";
-				//py->WriteLine(folders[i]+":"+imageClasses[i]+"_");
-				//py->WriteLine(imageClasses[i]);
-				//py->WriteLine("");
 			}
 			py->WriteLine(name);
 			Clipboard::SetText(name);
@@ -623,15 +619,15 @@ namespace ObjectDetection {
 
 		void SortOutputHandler(System::Object^ sendingProcess, DataReceivedEventArgs^ outLine){
 			if (outLine->Data == nullptr) return;
-			//MessageBox::Show(outLine->Data);
-			float currentSize = this->output->Size.Height;
+
+			int currentSize = this->output->Size.Height;
 			this->output->Text += "\n" + outLine->Data;
-			float newSize = this->output->Size.Height;
+			int newSize = this->output->Size.Height;
 
 			array<String^>^ lines = this->output->Text->Split('\n');
 			if (lines->Length > 15) {
-				float yPos = this->output->Location.Y;
-				float xPos = this->output->Location.X;
+				int yPos = this->output->Location.Y;
+				int xPos = this->output->Location.X;
 				this->output->Location = System::Drawing::Point(xPos, yPos - (newSize - currentSize));
 			}
 
@@ -644,19 +640,26 @@ namespace ObjectDetection {
 			dialog->IsFolderPicker = false;
 			dialog->Filters->Add(gcnew CommonFileDialogFilter("Image Files", "*.jpg;*.jpeg;*.png;*dicm"));
 			
+			//clean up old image if it exist
+			if (chosenImage->Image != nullptr) {
+				chosenImage->Image = nullptr;
+			}
+			if (img != nullptr) {
+				delete(img);
+			}
 
 			if (dialog->ShowDialog() != CommonFileDialogResult::Ok) return;
 			String^ name = dialog->FileName;
-			Bitmap^ img;
 			try {
 
 				img = gcnew Bitmap(name);
 			}
 			catch (Exception^ e) {
 				MessageBox::Show("File failed to be opened, it is likely corrupted\n"+e->ToString());
-				//MessageBox::Show(e->ToString());
 				return;
 			}
+
+
 			chosenImage->Image = img;
 			scanImage = name;
 		}
@@ -672,6 +675,9 @@ namespace ObjectDetection {
 				return;
 			}
 
+			if (chosenImage->Image->ToString()->Contains("testimages")) {
+				chosenImage->Image = nullptr;
+			}
 			py->WriteLine(chosenModel + "," + scanImage);
 			py->Flush();
 		}
@@ -680,22 +686,35 @@ namespace ObjectDetection {
 			if (outLine->Data == nullptr) return;
 			String^ data = outLine->Data;
 			
-			//System::Windows::Forms::Clipboard::SetText(outLine->Data);
-			//MessageBox::Show("got stuff "+outLine->Data+ " with length of "+outLine->Data->Length);
-			//if (outLine->Data == "") {
-				//MessageBox::Show("empty data dont know why");
-			//}
-			//MessageBox::Show(outLine->Data);
-			//if (outLine->Data == "Waiting for image") {
-				
-				//return;
-			//}
-			
-			//MessageBox::Show(data);
-			String^ detect = "Detected: ";
+			String^ detect = "Detected:";
+			std::unordered_map<std::string, float> values = {};
 			if (data->Contains(detect)) {
-				this->DetectOutput->Text += outLine->Data+"\n";
+				String^ path = System::Reflection::Assembly::GetExecutingAssembly()->CodeBase;
+				String^ dir = System::IO::Path::GetDirectoryName(path);
+				String^ outputImage = dir->Substring(6) + "\\testimages\\originalImage.png";
+
 				
+				//if (File::Exists(outputImage)) {
+					try {
+
+						img = gcnew Bitmap(outputImage);
+					}
+					catch (Exception^ e) {
+						MessageBox::Show("File failed to be opened, it is likely corrupted\n" + e->ToString());
+						return;
+					}
+					chosenImage->Image = img;
+
+				//}
+				//else {
+					//MessageBox::Show("invalid file");
+				//}
+				
+			}
+
+			array<String^>^ parts = data->Split(':');
+			for (int i = 0; i < parts->Length; i++) {
+				this->DetectOutput->Text += parts[i]+"\n";
 			}
 		}
 	};
