@@ -32,35 +32,25 @@ namespace ObjectDetection {
 		MyForm(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
 		}
 		
-
-		   //array<String> folders = {""};
-
-		   String^ chosenModel;
-		   String^ scanImage;
-	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		~MyForm()
-		{
-			//if (components)
-			//{
-				//delete components;
-			//}
-		}
-		//main menu ui
+		   
 	private:
+		//global variables
 		List<String^>^ imageClasses = gcnew List<String^>();
 		List<String^>^ folders = gcnew List<String^>();
 		String^ lastDetectedLine;
 		StreamWriter^ py;
 		Bitmap^ img;
+		String^ scanImage;
+		String^ chosenModel;
 
+		//non interactive ui
+		System::Windows::Forms::Label^ label1;
+		System::Windows::Forms::Label^ label3;
+		System::Windows::Forms::Label^ label2;
+
+		//interactive system uis below
 		System::Windows::Forms::GroupBox^ mainMenu;
 		System::Windows::Forms::Button^ useModel;
 		System::Windows::Forms::Button^ trainModel;
@@ -95,11 +85,6 @@ namespace ObjectDetection {
 		System::Windows::Forms::Button^ back;
 
 		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		//System::ComponentModel::Container ^components;
-
-		/// <summary>
 		/// Required method for Designer support - do not modify
 		/// the contents of this method with the code editor.
 		/// </summary>
@@ -107,6 +92,9 @@ namespace ObjectDetection {
 		{
 			this->back = (gcnew System::Windows::Forms::Button());
 			this->mainMenu = (gcnew System::Windows::Forms::GroupBox());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->useModel = (gcnew System::Windows::Forms::Button());
 			this->trainModel = (gcnew System::Windows::Forms::Button());
 			this->models = (gcnew System::Windows::Forms::GroupBox());
@@ -137,18 +125,27 @@ namespace ObjectDetection {
 			// 
 			// back
 			// 
+			this->back->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(28)),
+				static_cast<System::Int32>(static_cast<System::Byte>(34)));
+			this->back->FlatAppearance->BorderColor = System::Drawing::Color::White;
+			this->back->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->back->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10));
+			this->back->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->back->Location = System::Drawing::Point(12, 17);
 			this->back->Name = L"back";
 			this->back->Size = System::Drawing::Size(81, 42);
 			this->back->TabIndex = 2;
 			this->back->Text = L"<-Back";
-			this->back->UseVisualStyleBackColor = true;
+			this->back->UseVisualStyleBackColor = false;
 			this->back->Click += gcnew System::EventHandler(this, &MyForm::back_Click);
 			// 
 			// mainMenu
 			// 
-			this->mainMenu->BackColor = System::Drawing::SystemColors::ControlDark;
+			this->mainMenu->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(13)), static_cast<System::Int32>(static_cast<System::Byte>(17)),
+				static_cast<System::Int32>(static_cast<System::Byte>(23)));
+			this->mainMenu->Controls->Add(this->label3);
+			this->mainMenu->Controls->Add(this->label2);
+			this->mainMenu->Controls->Add(this->label1);
 			this->mainMenu->Controls->Add(this->useModel);
 			this->mainMenu->Controls->Add(this->trainModel);
 			this->mainMenu->Location = System::Drawing::Point(0, 0);
@@ -157,13 +154,48 @@ namespace ObjectDetection {
 			this->mainMenu->TabIndex = 0;
 			this->mainMenu->TabStop = false;
 			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10));
+			this->label3->ForeColor = System::Drawing::SystemColors::ControlDarkDark;
+			this->label3->Location = System::Drawing::Point(978, 637);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(159, 17);
+			this->label3->TabIndex = 4;
+			this->label3->Text = L"v1.0 By Nico Andersson";
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10));
+			this->label2->ForeColor = System::Drawing::SystemColors::ControlDarkDark;
+			this->label2->Location = System::Drawing::Point(978, 219);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(167, 17);
+			this->label2->TabIndex = 3;
+			this->label2->Text = L"Train your own AI models";
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 25));
+			this->label1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->label1->Location = System::Drawing::Point(902, 141);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(324, 39);
+			this->label1->TabIndex = 2;
+			this->label1->Text = L"Medical AI Assistant";
+			// 
 			// useModel
 			// 
-			this->useModel->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->useModel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(28)),
+				static_cast<System::Int32>(static_cast<System::Byte>(34)));
 			this->useModel->FlatAppearance->BorderSize = 0;
+			this->useModel->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->useModel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
 			this->useModel->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->useModel->Location = System::Drawing::Point(1190, 468);
+			this->useModel->Location = System::Drawing::Point(937, 282);
 			this->useModel->Name = L"useModel";
 			this->useModel->Size = System::Drawing::Size(246, 124);
 			this->useModel->TabIndex = 0;
@@ -173,11 +205,13 @@ namespace ObjectDetection {
 			// 
 			// trainModel
 			// 
-			this->trainModel->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->trainModel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(28)),
+				static_cast<System::Int32>(static_cast<System::Byte>(34)));
 			this->trainModel->FlatAppearance->BorderSize = 0;
+			this->trainModel->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->trainModel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
 			this->trainModel->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->trainModel->Location = System::Drawing::Point(730, 468);
+			this->trainModel->Location = System::Drawing::Point(937, 464);
 			this->trainModel->Name = L"trainModel";
 			this->trainModel->Size = System::Drawing::Size(246, 124);
 			this->trainModel->TabIndex = 1;
@@ -187,8 +221,8 @@ namespace ObjectDetection {
 			// 
 			// models
 			// 
-			this->models->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(30)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
-				static_cast<System::Int32>(static_cast<System::Byte>(30)));
+			this->models->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(13)), static_cast<System::Int32>(static_cast<System::Byte>(17)),
+				static_cast<System::Int32>(static_cast<System::Byte>(23)));
 			this->models->Controls->Add(this->DetectOutput);
 			this->models->Controls->Add(this->detect);
 			this->models->Controls->Add(this->chosenImage);
@@ -209,7 +243,6 @@ namespace ObjectDetection {
 			// 
 			this->DetectOutput->AutoSize = true;
 			this->DetectOutput->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			//this->DetectOutput->Location = System::Drawing::Point(946, 721);
 			this->DetectOutput->Location = System::Drawing::Point(500, 100);
 			this->DetectOutput->Name = L"DetectOutput";
 			this->DetectOutput->Size = System::Drawing::Size(0, 31);
@@ -217,12 +250,17 @@ namespace ObjectDetection {
 			// 
 			// detect
 			// 
+			this->detect->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(28)),
+				static_cast<System::Int32>(static_cast<System::Byte>(34)));
+			this->detect->FlatAppearance->BorderColor = System::Drawing::Color::White;
+			this->detect->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->detect->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->detect->Location = System::Drawing::Point(1218, 100);
 			this->detect->Name = L"detect";
 			this->detect->Size = System::Drawing::Size(179, 41);
 			this->detect->TabIndex = 7;
-			this->detect->Text = L"Detect";
-			this->detect->UseVisualStyleBackColor = true;
+			this->detect->Text = L"Run";
+			this->detect->UseVisualStyleBackColor = false;
 			this->detect->Click += gcnew System::EventHandler(this, &MyForm::detect_Click);
 			// 
 			// chosenImage
@@ -236,22 +274,31 @@ namespace ObjectDetection {
 			// 
 			// imageSelect
 			// 
+			this->imageSelect->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(28)),
+				static_cast<System::Int32>(static_cast<System::Byte>(34)));
+			this->imageSelect->FlatAppearance->BorderColor = System::Drawing::Color::White;
+			this->imageSelect->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->imageSelect->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->imageSelect->Location = System::Drawing::Point(879, 100);
 			this->imageSelect->Name = L"imageSelect";
-			this->imageSelect->Size = System::Drawing::Size(179, 41);
+			this->imageSelect->Size = System::Drawing::Size(201, 41);
 			this->imageSelect->TabIndex = 5;
 			this->imageSelect->Text = L"Select image";
-			this->imageSelect->UseVisualStyleBackColor = true;
+			this->imageSelect->UseVisualStyleBackColor = false;
 			this->imageSelect->Click += gcnew System::EventHandler(this, &MyForm::imageSelect_Click);
 			// 
 			// confirmModel
 			// 
-			this->confirmModel->BackColor = System::Drawing::Color::Lime;
-			this->confirmModel->Location = System::Drawing::Point(308, 54);
+			this->confirmModel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(28)),
+				static_cast<System::Int32>(static_cast<System::Byte>(34)));
+			this->confirmModel->FlatAppearance->BorderColor = System::Drawing::Color::White;
+			this->confirmModel->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->confirmModel->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->confirmModel->Location = System::Drawing::Point(289, 100);
 			this->confirmModel->Name = L"confirmModel";
-			this->confirmModel->Size = System::Drawing::Size(154, 40);
+			this->confirmModel->Size = System::Drawing::Size(221, 40);
 			this->confirmModel->TabIndex = 8;
-			this->confirmModel->Text = L"Confirm";
+			this->confirmModel->Text = L"Confirm model";
 			this->confirmModel->UseVisualStyleBackColor = false;
 			this->confirmModel->Click += gcnew System::EventHandler(this, &MyForm::confirmModel_click);
 			// 
@@ -266,7 +313,7 @@ namespace ObjectDetection {
 			// modelsView
 			// 
 			this->modelsView->HideSelection = false;
-			this->modelsView->Location = System::Drawing::Point(112, 100);
+			this->modelsView->Location = System::Drawing::Point(112, 170);
 			this->modelsView->MultiSelect = false;
 			this->modelsView->Name = L"modelsView";
 			this->modelsView->Scrollable = false;
@@ -427,6 +474,7 @@ namespace ObjectDetection {
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->mainMenu->ResumeLayout(false);
+			this->mainMenu->PerformLayout();
 			this->models->ResumeLayout(false);
 			this->models->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chosenImage))->EndInit();
@@ -441,13 +489,18 @@ namespace ObjectDetection {
 			String^ modelName = lastPart->Substring(0, lastPart->Length - 3);
 
 			Button^ model = gcnew System::Windows::Forms::Button();
+			model->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(28)),
+				static_cast<System::Int32>(static_cast<System::Byte>(34)));
+			model->FlatAppearance->BorderColor = System::Drawing::Color::White;
+			model->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			model->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			model->AutoSize = true;
 			model->TabIndex = 2;
 			model->UseVisualStyleBackColor = true;
 			model->Name = i.ToString();
 			model->Text = L"" + modelName + "";
 			model->Size = System::Drawing::Size(200, 50);
-			model->Location = System::Drawing::Point(122, 65 + i * model->Size.Height + 5);
+			model->Location = System::Drawing::Point(122, 135 + i * model->Size.Height + 5);
 
 			return model;
 		}
@@ -694,7 +747,7 @@ namespace ObjectDetection {
 				String^ outputImage = dir->Substring(6) + "\\testimages\\originalImage.png";
 
 				
-				//if (File::Exists(outputImage)) {
+				if (File::Exists(outputImage)) {
 					try {
 
 						img = gcnew Bitmap(outputImage);
@@ -705,10 +758,10 @@ namespace ObjectDetection {
 					}
 					chosenImage->Image = img;
 
-				//}
-				//else {
-					//MessageBox::Show("invalid file");
-				//}
+				}
+				else {
+					MessageBox::Show("invalid file");
+				}
 				
 			}
 
@@ -717,5 +770,6 @@ namespace ObjectDetection {
 				this->DetectOutput->Text += parts[i]+"\n";
 			}
 		}
+
 	};
 }
