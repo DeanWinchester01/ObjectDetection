@@ -40,7 +40,7 @@ def loadImage(path: str) -> torch.Tensor:
             img = np.array(img).astype(np.float32) / 255.0
             img_tensor = torch.tensor(img).permute(2, 0, 1)  # CHW format
             return img_tensor
-        elif( path.lower().endswith((".dcm", ".dicom"))):
+        elif path.lower().endswith((".dcm", ".dicom")): #dicom image stupport as scans typically output in this format
             imageData = pydicom.dcmread(path)
             img = imageData.pixel_array.astype(np.float32)
             img = (img - np.min(img)) / (np.max(img) - np.min(img))
@@ -48,11 +48,6 @@ def loadImage(path: str) -> torch.Tensor:
             transform = transforms.Resize((512, 512))
             img_tensor = transform(img_tensor)
             img = img_tensor.repeat(3,1,1)
-            """img = np.stack((img,) * 3, axis=-1)
-            img = img.resize((512, 512))  # Resize to 512x512
-            img = np.array(img).astype(np.float32) / 255.0
-            #img = tf.image.resize(img, (512, 512)).numpy()
-            """
             return img
         else:
             raise ValueError("Unsupported image format")
@@ -66,9 +61,6 @@ def GetImageData(folders, labels):
     
     data = []
     dataLabels = []
-    print(folders, flush=True)
-    print("length of folders:", len(folders), flush=True)
-    print("length of labels:", len(labels), flush=True)
     for i in range(len(folders)):
         folder = folders[i]
         label = labels[i]
@@ -116,8 +108,9 @@ def train_model(model, train_loader, criterion, optimizer, device, num_epochs=10
         print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {running_loss/len(train_loader):.4f}", flush=True)
 
 # Main execution
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print("Starting main execution", flush=True)
 while True:
-    print("Starting main execution", flush=True)
     lines = sys.stdin.readline()
     if not lines:
         continue
@@ -128,18 +121,9 @@ while True:
     address = []
     label = []
 
-    #with open(path+"\\"+"Data.txt", "r") as data:
     parts = lines.split(",")
     modelName = parts[0]
     args = parts[1].split("\"")
-    #parts.remove(modelName)
-    #parts.remove(modelName)
-    #print("Model Name:", modelName, flush=True)
-    #print(parts)
-
-    #lines = lines[1:]
-    
-    #lines = [line for line in lines if line.strip()]  # Remove empty lines
     for i in range(0, len(args)-1):
         if(lines[i] == "\n"):
             continue
@@ -148,32 +132,26 @@ while True:
         else:
             label.append(args[i])
 
-    print("Model Name:", modelName, flush=True)
-    print("Addresses:\n", address, flush=True)
-    print("Labels:\n", label, flush=True)
-    #"""
+    print("Received input from stdin and extracted data", flush=True)
                 
     data, labels = GetImageData(address, label)
     print("Data and labels loaded", flush=True)
     # Load data
-    
     
     # Encode labels
     print("Encoding labels", flush=True)
     label_encoder = LabelEncoder()
     label_encoder.fit(labels)  # Fit on 
     print("encoded labels", flush=True)
-    #print(f"Label classes: {label_encoder.classes_}", flush=True)
     
     # Create dataset and dataloader
     dataset = ImageDataset(data, labels, label_encoder)
     train_loader = DataLoader(dataset, batch_size=16, shuffle=True)
     print("Dataset and DataLoader created", flush=True)
+
     # Initialize model, loss, and optimizer
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = CNNModel(num_classes=len(label_encoder.classes_)).to(device)  # num_classes=1 for binary classification with BCEWithLogitsLoss
+    model = CNNModel(num_classes=len(label_encoder.classes_)).to(device)  #set number of classes to the number of unique labels
     criterion = nn.CrossEntropyLoss()
-    #criterion = nn.BCEWithLogitsLoss()  # Combines sigmoid and binary cross-entropy
     optimizer = optim.Adam(model.parameters(), lr=0.001)
     
     # Train the model

@@ -244,8 +244,8 @@ namespace ObjectDetection {
 			this->DetectOutput->AutoSize = true;
 			this->DetectOutput->ForeColor = System::Drawing::SystemColors::ButtonFace;
 			this->DetectOutput->Location = System::Drawing::Point(500, 100);
-			this->DetectOutput->Name = L"DetectOutput";
 			this->DetectOutput->Size = System::Drawing::Size(0, 31);
+			this->DetectOutput->Name = L"DetectOutput";
 			this->DetectOutput->TabIndex = 8;
 			// 
 			// detect
@@ -470,7 +470,7 @@ namespace ObjectDetection {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1904, 1041);
-			this->Controls->Add(this->mainMenu);
+			this->Controls->Add(this->train);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->mainMenu->ResumeLayout(false);
@@ -569,7 +569,7 @@ namespace ObjectDetection {
 			//configure process
 			Process^ detect = gcnew Process();
 			detect->StartInfo->FileName = pythonExe;
-			detect->StartInfo->Arguments = "image_detect2.py";
+			detect->StartInfo->Arguments = "image_Detect.py";
 			detect->StartInfo->UseShellExecute = false;
 			detect->StartInfo->RedirectStandardOutput = true;
 			detect->StartInfo->RedirectStandardError = true;
@@ -613,10 +613,10 @@ namespace ObjectDetection {
 			train->StartInfo->FileName = pythonExe;
 			train->StartInfo->Arguments = "image_train.py";
 			train->StartInfo->UseShellExecute = false;
-			train->StartInfo->RedirectStandardOutput = true;
 			train->StartInfo->RedirectStandardError = true;
 			train->StartInfo->CreateNoWindow = true; // Optional
 			train->EnableRaisingEvents = true;
+			train->StartInfo->RedirectStandardOutput = true;
 			train->StartInfo->RedirectStandardInput = true;
 
 			//read python output
@@ -633,6 +633,7 @@ namespace ObjectDetection {
 			if (this->Controls->Contains(train))
 				this->Controls->Remove(train);
 
+			//close the python process when backing out
 			if (py != nullptr)
 				py->Close();
 			this->Controls->Add(mainMenu);
@@ -665,7 +666,6 @@ namespace ObjectDetection {
 				name += folders[i] + "\"" + imageClasses[i] + "\"";
 			}
 			py->WriteLine(name);
-			Clipboard::SetText(name);
 			this->output->Text += "\nFlushed to python";
 			py->Flush();
 		}
@@ -719,6 +719,9 @@ namespace ObjectDetection {
 
 		System::Void detect_Click(System::Object^ sender, System::EventArgs^ e) {
 			this->DetectOutput->Text = "";
+			this->DetectOutput->Location = System::Drawing::Point(500, 100);
+			this->DetectOutput->Size = System::Drawing::Size(0, 31);
+
 			if (chosenModel == "") {
 				MessageBox::Show("please select a model to use");
 				return;
@@ -731,6 +734,7 @@ namespace ObjectDetection {
 			if (chosenImage->Image->ToString()->Contains("testimages")) {
 				chosenImage->Image = nullptr;
 			}
+			
 			py->WriteLine(chosenModel + "," + scanImage);
 			py->Flush();
 		}
@@ -738,13 +742,12 @@ namespace ObjectDetection {
 			DataReceivedEventArgs^ outLine) {
 			if (outLine->Data == nullptr) return;
 			String^ data = outLine->Data;
+
 			
-			String^ detect = "Detected:";
 			std::unordered_map<std::string, float> values = {};
-			if (data->Contains(detect)) {
-				String^ path = System::Reflection::Assembly::GetExecutingAssembly()->CodeBase;
-				String^ dir = System::IO::Path::GetDirectoryName(path);
-				String^ outputImage = dir->Substring(6) + "\\testimages\\originalImage.png";
+			if (data->Contains("Detected:")) {
+				String^ path = Directory::GetCurrentDirectory();
+				String^ outputImage = path+ "\\testimages\\originalImage.png";
 
 				
 				if (File::Exists(outputImage)) {
@@ -767,7 +770,16 @@ namespace ObjectDetection {
 
 			array<String^>^ parts = data->Split(':');
 			for (int i = 0; i < parts->Length; i++) {
+				int currentSize = this->DetectOutput->Size.Height;
 				this->DetectOutput->Text += parts[i]+"\n";
+				int newSize = this->DetectOutput->Size.Height;
+
+				array<String^>^ lines = this->DetectOutput->Text->Split('\n');
+				if (lines->Length > 15) {
+					int yPos = this->output->Location.Y;
+					int xPos = this->output->Location.X;
+					this->output->Location = System::Drawing::Point(xPos, yPos - (newSize - currentSize));
+				}
 			}
 		}
 

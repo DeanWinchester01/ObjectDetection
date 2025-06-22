@@ -26,27 +26,6 @@ class CNNModel(nn.Module):
     def forward(self, x):
         return self.network(x)
     
-def loadImage2(image: Image.Image) -> torch.Tensor:
-    # Convert a PIL Image to a tensor
-    img = image.convert("RGB")
-    img = img.resize((512, 512))
-    img = np.array(img).astype(np.float32) / 255.0
-    img_tensor = torch.tensor(img).permute(2, 0, 1).unsqueeze(0)  # CHW format
-    return img_tensor
-
-def loadDicomImage(path: str) -> torch.Tensor:
-    # Load a DICOM image and convert it to a tensor
-    try:
-        imageData = pydicom.dcmread(path)
-        img = imageData.pixel_array.astype(np.float32)
-        img = (img - np.min(img)) / (np.max(img) - np.min(img))
-        img = np.stack((img,) * 3, axis=-1)  # Convert to RGB
-        img = tf.image.resize(img, (512, 512)).numpy()
-        img_tensor = torch.tensor(img).permute(2, 0, 1).unsqueeze(0)  # NCHW format
-        return img_tensor
-    except Exception as e:
-        raise ValueError(f"Error loading DICOM image: {e}")
-    
 def loadImage(path: str) -> torch.Tensor:
     if path.lower().endswith((".jpg", ".jpeg", ".png")):
         img = 1
@@ -89,7 +68,7 @@ def Detect(modelPt: str) -> str:
             probs = prob[0][predicted_class].item()
             predicted_label = label_encoder.inverse_transform([predicted_class])[0]
             
-            if predicted_label == "unknown":
+            if predicted_label == "unknown" or predicted_label == "healthy":
                 continue
             
             rounded = round(probs, 4)
@@ -108,7 +87,7 @@ def Detect(modelPt: str) -> str:
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = ""
 
-def ScanImage2(image: str):
+def ScanImage(image: str):
     oldImage = Image.open(image).convert("RGB")
     iterations = 0
     startx = 0
@@ -138,6 +117,8 @@ def DisplayResults(originalImage: str, imageCoordinates: str):
         return
     
     ogImg = Image.open(originalImage)
+    if ogImg.mode != "RGB":
+        ogImg = ogImg.convert("RGB")
     positions = imageCoordinates.split("_")[2][1:-5].split(",")
     x1, y1, x2, y2 = int(positions[0]), int(positions[1]), int(positions[2]), int(positions[3])
 
@@ -150,8 +131,6 @@ def DisplayResults(originalImage: str, imageCoordinates: str):
     imgfont = ImageFont.truetype("arial.ttf", 30)
     ImageDraw.Draw(ogImg).text((x1,y2), label, font=imgfont, fill=(255, 0, 0))
     
-    #Image.SAVE("testimages\\originalImage.png", ogImg)
-    print(originalImage, flush=True)
     ogImg.save(originalImage)  # Save the modified image
     ogImg.close()
     os.remove("testimages\\"+imageCoordinates)  # Remove the processed image
@@ -185,8 +164,12 @@ while True:
         model = CNNModel(num_classes=len(label_encoder.classes_)).to(device)
 
     print("model loaded", flush=True)
-    ScanImage2(imageAddress)
+    ScanImage(imageAddress)
     data = Detect(modelPt)
+    
+    if len(data) == 0:
+        print("Healthy", flush=True)
+        continue
 
     # generate a new image from the original to draw the results on
     newImage = Image.open(imageAddress).save("testimages\\originalImage.png")

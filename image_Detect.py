@@ -25,13 +25,7 @@ class CNNModel(nn.Module):
         return self.network(x)
     
 def loadImage(path: str) -> torch.Tensor:
-    
-    #print(path[:-1], flush=True)
-    #format = path.lower().endswith((".jpg", ".jpeg", ".png"))
-    #format = path.lower().endswith((".jpg", ".jpeg", ".png"))
-    #print(f"Loading image from {path}", flush=True)
-    #print("image ends with correct format = " +str(format) , flush=True)
-    #print(path.replace(" ",":"), flush=True)
+    print(path[:-5], flush=True)
     if path.lower().endswith((".jpg", ".jpeg", ".png")):
         img = 1
         try:
@@ -43,21 +37,15 @@ def loadImage(path: str) -> torch.Tensor:
         except Exception as e:
             raise ValueError(f"Error loading image: {e}")
         #return None
-#elif path.lower().endswith((".dcm", ".dicom")):
-
-    try:
-        imageData = pydicom.dcmread(path)
-        img = imageData.pixel_array.astype(np.float32)
-        img = (img - np.min(img)) / (np.max(img) - np.min(img))
-        img = np.stack((img,) * 3, axis=-1)
-        img = tf.image.resize(img, (512, 512)).numpy()
-    except Exception as e:
-        raise ValueError(f"Error loading DICOM image: {e}")
-        """
-        img = Image.open(path).convert("RGB")
-        img = img.resize((512,512))
-        img = np.array(img).astype(np.float32) / 255.0
-        """
+    elif path.lower().endswith((".dcm", ".dicom")):
+        try:
+            imageData = pydicom.dcmread(path)
+            img = imageData.pixel_array.astype(np.float32)
+            img = (img - np.min(img)) / (np.max(img) - np.min(img))
+            img = np.stack((img,) * 3, axis=-1)
+            img = tf.image.resize(img, (512, 512)).numpy()
+        except Exception as e:
+            raise ValueError(f"Error loading DICOM image: {e}")
         
     else:
         raise ValueError("Unsupported image format")
@@ -66,46 +54,32 @@ def loadImage(path: str) -> torch.Tensor:
     return img_tensor
 
 def Detect(modelPt: str, image: str) -> str:
-    #print("Detecting image", flush=True)
-    #print(f"Model address: {modelAddress}, Image address: {image}", flush=True)
-    #print("Model loaded", flush=True)
-    #print("Model loaded", flush=True)
     model.load_state_dict(torch.load(modelPt, weights_only=True))
-    #print(f"Image size: {x}x{y}", flush=True)
-    #intSize = i.read()
-    #print(str(i), flush=True)
-
+    cancer = 0
+    healthy = 0
     with torch.no_grad():
-        #print(f"Loading image {image}", flush=True)
-        #print(f"Loading image: {image}", flush=True)
-        img = loadImage(image).to(device)
-        #print("Image loaded", flush=True)
-        output = model(img)
-        #print("Model output computed", flush=True)
-        prob = torch.softmax(output, dim=1)
-        predicted_class = torch.argmax(prob, dim=1).item()
-        """
-        prob = torch.sigmoid(output).item()
-        predicted_class = 1 if prob >= 0.5 else 0
-        predicted_label = label_encoder.inverse_transform([predicted_class])[0]
-        """
-        probs = prob[0][predicted_class].item()
-        predicted_label = label_encoder.inverse_transform([predicted_class])[0]
-        #print(predicted_class)
-        #print(prob)
-        return predicted_label, probs
+        for img in os.listdir(image):
+            print(img, flush=True)
+            if '\n' in img:
+                img = img[:-1]
+            img = loadImage(image+"\\"+img).to(device)
+            output = model(img)
+            prob = torch.softmax(output, dim=1)
+            predicted_class = torch.argmax(prob, dim=1).item()
+            probs = prob[0][predicted_class].item()
+            predicted_label = label_encoder.inverse_transform([predicted_class])[0]
+            if predicted_label == "healthy":
+                healthy += 1
+            elif predicted_label == "cancer":
+                cancer += 1
+
+    print(f"predicted: cancer {cancer} times", flush=True)
+    print(f"predicted: healthy {healthy} times", flush=True)
+    return cancer, healthy
         
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = ""
-#model.load_state_dict(torch.load("image_classification_model.pt"))
-
-#print("Model name: "+ modelAddress, flush=True)
-#print("pkl name: "+ modelPkl, flush=True)
-#print(f"Received image: {image}")
-
-
-
 
 
 while True:
@@ -116,7 +90,6 @@ while True:
     if(lines == ""): 
         continue
     print("Received input from stdin", flush=True)
-    pyperclip.copy(lines)
     #os.path.dirname(os.path.abspath(__file__)) + "\\"+
     modelAddress = lines.split(",")[0]
     imageAddress = lines.split(",")[1]
@@ -135,7 +108,7 @@ while True:
     print("model loaded", flush=True)
     #print("Label encoder loaded", flush=True)
     predicted_label, prob = Detect(modelPt, imageAddress)
-    print(f"Detected: Predicted label: {predicted_label}, Probability: {prob:.4f}", flush=True)
+    #print(f"Detected: Predicted label: {predicted_label}, Probability: {prob:.4f}", flush=True)
     #sys.stdin.close()
     #sys.exit(0)
 #"""
