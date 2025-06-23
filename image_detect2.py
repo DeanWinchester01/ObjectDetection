@@ -93,12 +93,11 @@ def ScanImage(image: str):
     startx = 0
     starty = 0
     round = 0
-    useAllPixels = False
     for ogSize in range(256,oldImage.width, 256):
         sizeIncrease = ogSize
         iterations += 1
-        for x in range(startx, oldImage.width* (useAllPixels and 2 or 1)-ogSize, sizeIncrease):
-            for y in range(starty, oldImage.height*(useAllPixels and 2 or 1)-ogSize, ogSize):
+        for x in range(startx, oldImage.width* 1-ogSize, sizeIncrease):
+            for y in range(starty, oldImage.height*1-ogSize, ogSize):
                 newImage = Image.new("RGB", (sizeIncrease, sizeIncrease))
                 image_position = (x, y, x+sizeIncrease, y+sizeIncrease)
                 cropped_region = oldImage.crop(image_position)

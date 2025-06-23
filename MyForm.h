@@ -470,7 +470,7 @@ namespace ObjectDetection {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1904, 1041);
-			this->Controls->Add(this->train);
+			this->Controls->Add(this->mainMenu);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->mainMenu->ResumeLayout(false);
@@ -587,6 +587,7 @@ namespace ObjectDetection {
 		}
 
 		System::Void modelSelected(System::Object^ sender, System::EventArgs^ e) {
+			//read what dynamically loaded model button was pressed
 			Button^ clickedButton = dynamic_cast<Button^>(sender);
 			this->confirmModel->Visible = true;
 			this->selected->Text = "Selected model: " + clickedButton->Text;
@@ -655,6 +656,15 @@ namespace ObjectDetection {
 		//training begins
 		//
 		System::Void startTraining_Click(System::Object^ sender, System::EventArgs^ e) {
+			//guard clauses to stop empty training
+			if (imageClasses->Count == 0) {
+				MessageBox::Show("Add some labels");
+				return;
+			}
+			if (folders->Count == 0) {
+				MessageBox::Show("Add some folders containing images you wish to train on");
+				return;
+			}
 
 			this->output->Text += "\nStarting training";
 			this->output->Size = System::Drawing::Size(86, 31);
@@ -666,17 +676,18 @@ namespace ObjectDetection {
 				name += folders[i] + "\"" + imageClasses[i] + "\"";
 			}
 			py->WriteLine(name);
-			this->output->Text += "\nFlushed to python";
 			py->Flush();
 		}
 
 		void SortOutputHandler(System::Object^ sendingProcess, DataReceivedEventArgs^ outLine){
 			if (outLine->Data == nullptr) return;
 
+			//calculate size difference
 			int currentSize = this->output->Size.Height;
 			this->output->Text += "\n" + outLine->Data;
 			int newSize = this->output->Size.Height;
 
+			//move output label if up size difference is too big
 			array<String^>^ lines = this->output->Text->Split('\n');
 			if (lines->Length > 15) {
 				int yPos = this->output->Location.Y;
@@ -684,10 +695,12 @@ namespace ObjectDetection {
 				this->output->Location = System::Drawing::Point(xPos, yPos - (newSize - currentSize));
 			}
 
+			//training finished, close python stream
 			if (outLine->Data->Contains("saved"))
 				py->Close();
 		}
 
+		//function to ask user for image to scan
 		System::Void imageSelect_Click(System::Object^ sender, System::EventArgs^ e) {
 			CommonOpenFileDialog^ dialog = gcnew CommonOpenFileDialog();
 			dialog->IsFolderPicker = false;
@@ -701,7 +714,7 @@ namespace ObjectDetection {
 				delete(img);
 			}
 
-			if (dialog->ShowDialog() != CommonFileDialogResult::Ok) return;
+			if (dialog->ShowDialog() != CommonFileDialogResult::Ok) return; //guard clause to stop if user does not select a file
 			String^ name = dialog->FileName;
 			try {
 
@@ -717,6 +730,7 @@ namespace ObjectDetection {
 			scanImage = name;
 		}
 
+		//clicked button to detect subject in image
 		System::Void detect_Click(System::Object^ sender, System::EventArgs^ e) {
 			this->DetectOutput->Text = "";
 			this->DetectOutput->Location = System::Drawing::Point(500, 100);
@@ -738,6 +752,8 @@ namespace ObjectDetection {
 			py->WriteLine(chosenModel + "," + scanImage);
 			py->Flush();
 		}
+
+		//read and display output from detection process
 		void DetectionOutputHandler(System::Object^ sendingProcess,
 			DataReceivedEventArgs^ outLine) {
 			if (outLine->Data == nullptr) return;
@@ -746,6 +762,7 @@ namespace ObjectDetection {
 			
 			std::unordered_map<std::string, float> values = {};
 			if (data->Contains("Detected:")) {
+
 				String^ path = Directory::GetCurrentDirectory();
 				String^ outputImage = path+ "\\testimages\\originalImage.png";
 

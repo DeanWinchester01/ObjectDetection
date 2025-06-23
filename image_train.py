@@ -61,12 +61,15 @@ def GetImageData(folders, labels):
     
     data = []
     dataLabels = []
+    #iterate through each folder and give corresponding label to each image
     for i in range(len(folders)):
         folder = folders[i]
         label = labels[i]
         for img_name in os.listdir(folder):
             if not img_name.lower().endswith((".jpg", ".jpeg", ".png",".dcm", ".dicom")):
                 continue
+            
+            #get full path of the image
             img_path = os.path.join(folder, img_name)
             img_tensor = loadImage(img_path)
             if img_tensor is not None:
@@ -107,8 +110,8 @@ def train_model(model, train_loader, criterion, optimizer, device, num_epochs=10
             running_loss += loss.item()
         print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {running_loss/len(train_loader):.4f}", flush=True)
 
-# Main execution
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# Main execution
 print("Starting main execution", flush=True)
 while True:
     lines = sys.stdin.readline()
@@ -117,10 +120,11 @@ while True:
     if(lines == ""): 
         continue
     
-    path = os.path.dirname(os.path.abspath(__file__))
+    path = os.path.dirname(os.path.abspath(__file__))# get the path of the current script
     address = []
     label = []
 
+    #extract arguments from the input
     parts = lines.split(",")
     modelName = parts[0]
     args = parts[1].split("\"")
@@ -134,9 +138,9 @@ while True:
 
     print("Received input from stdin and extracted data", flush=True)
                 
+    # Load data
     data, labels = GetImageData(address, label)
     print("Data and labels loaded", flush=True)
-    # Load data
     
     # Encode labels
     print("Encoding labels", flush=True)
