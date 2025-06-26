@@ -42,8 +42,8 @@ namespace ObjectDetection {
 		String^ lastDetectedLine;
 		StreamWriter^ py;
 		Bitmap^ img;
-		String^ scanImage;
-		String^ chosenModel;
+		String^ scanImage = "";
+		String^ chosenModel = "";
 
 		//non interactive ui
 		System::Windows::Forms::Label^ label1;
@@ -244,8 +244,8 @@ namespace ObjectDetection {
 			this->DetectOutput->AutoSize = true;
 			this->DetectOutput->ForeColor = System::Drawing::SystemColors::ButtonFace;
 			this->DetectOutput->Location = System::Drawing::Point(500, 100);
-			this->DetectOutput->Size = System::Drawing::Size(0, 31);
 			this->DetectOutput->Name = L"DetectOutput";
+			this->DetectOutput->Size = System::Drawing::Size(0, 31);
 			this->DetectOutput->TabIndex = 8;
 			// 
 			// detect
@@ -305,6 +305,7 @@ namespace ObjectDetection {
 			// selected
 			// 
 			this->selected->AutoSize = true;
+			this->selected->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->selected->Location = System::Drawing::Point(600, 917);
 			this->selected->Name = L"selected";
 			this->selected->Size = System::Drawing::Size(0, 31);
@@ -758,34 +759,9 @@ namespace ObjectDetection {
 			DataReceivedEventArgs^ outLine) {
 			if (outLine->Data == nullptr) return;
 			String^ data = outLine->Data;
-
-			
-			std::unordered_map<std::string, float> values = {};
-			if (data->Contains("Detected:")) {
-
-				String^ path = Directory::GetCurrentDirectory();
-				String^ outputImage = path+ "\\testimages\\originalImage.png";
-
-				
-				if (File::Exists(outputImage)) {
-					try {
-
-						img = gcnew Bitmap(outputImage);
-					}
-					catch (Exception^ e) {
-						MessageBox::Show("File failed to be opened, it is likely corrupted\n" + e->ToString());
-						return;
-					}
-					chosenImage->Image = img;
-
-				}
-				else {
-					MessageBox::Show("invalid file");
-				}
-				
-			}
-
 			array<String^>^ parts = data->Split(':');
+
+			//output feedback and move label once there is enough output
 			for (int i = 0; i < parts->Length; i++) {
 				int currentSize = this->DetectOutput->Size.Height;
 				this->DetectOutput->Text += parts[i]+"\n";

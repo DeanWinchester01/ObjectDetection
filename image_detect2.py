@@ -54,34 +54,16 @@ def loadImage(path: str) -> torch.Tensor:
     img_tensor = torch.tensor(img).permute(2, 0, 1).unsqueeze(0)  # NCHW
     return img_tensor
 
-def Detect(modelPt: str) -> str:
-    images = os.listdir("testimages")
-    data = []
-    for image in images:
-        model.load_state_dict(torch.load(modelPt, weights_only=True))
-
-        with torch.no_grad():
-            img = loadImage("testimages\\"+image).to(device)
-            output = model(img)
-            prob = torch.softmax(output, dim=1)
-            predicted_class = torch.argmax(prob, dim=1).item()
-            probs = prob[0][predicted_class].item()
-            predicted_label = label_encoder.inverse_transform([predicted_class])[0]
-            
-            if predicted_label == "unknown" or predicted_label == "healthy":
-                continue
-            
-            rounded = round(probs, 4)
-            newName = predicted_label+"_"+str(rounded)+"_"+image
-            Image.open("testimages\\"+image).save("testimages\\"+newName)
-            
-            newData = [predicted_label, probs]
-            data.append(newData)
-
-    for image in images:
-        if not "_" in image:
-            os.remove("testimages\\"+image)
-    return data
+def Detect(image: str) -> str:
+    with torch.no_grad():
+        img = loadImage(image).to(device)
+        output = model(img)
+        prob = torch.softmax(output, dim=1)
+        predicted_class = torch.argmax(prob, dim=1).item()
+        probs = prob[0][predicted_class].item()
+        predicted_label = label_encoder.inverse_transform([predicted_class])[0]
+        
+        return predicted_label
         
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -140,6 +122,26 @@ def CleanUp():
         
         os.remove("testimages\\" + file)
 
+model = "Models\\cancer_detection.pt"
+label_encoder = "Models\\cancer_detection.pkl"
+
+with open(label_encoder, "rb") as label:
+    label_encoder = pickle.load(label)
+    loadedModel = CNNModel(num_classes=len(label_encoder.classes_)).to(device)
+
+normalDirectory = "C:\\Users\\Dean Winchester\\Desktop\\chest_xray\\train\\NORMAL"
+cancerDirectory = "C:\\Users\\Dean Winchester\\Desktop\\chest_xray\\train\\PNEUMONIA"
+normalImages = os.listdir(normalDirectory)
+cancerImages = os.listdir(cancerDirectory)
+
+correctNormal = 0
+correctCancer = 0
+
+loadedModel.load_state_dict(torch.load(loadedModel, weights_only=True))
+for image in normalImages:
+    label = Detect(normalDirectory + "\\" + image)
+    print(label)
+"""
 while True:
     print("Waiting for input from stdin", flush=True)
     lines = sys.stdin.readline()
@@ -191,3 +193,4 @@ while True:
     for label, prob in values.items():
         returnString += f"{label} {prob:.4f}:"
     print(f"Detected:"+returnString, flush=True)
+"""

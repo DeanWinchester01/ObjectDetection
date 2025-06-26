@@ -4,10 +4,10 @@ import torch.nn as nn
 import numpy as np
 import pickle
 from PIL import Image
-import os
 import sys
 import tensorflow as tf
 import pydicom
+import os
 print("Imported libraries", flush=True)
 
 class CNNModel(nn.Module):
@@ -28,7 +28,10 @@ class CNNModel(nn.Module):
 def loadImage(path: str) -> torch.Tensor:
     if path.lower().endswith((".jpg", ".jpeg", ".png")):
         try:
-            img = Image.open(path).convert("RGB")
+            img = Image.open(path)
+            if img.mode != 'RGB':
+                img = img.convert('RGB')
+
             img = img.resize((512, 512))
             img = np.array(img).astype(np.float32) / 255.0
             img_tensor = torch.tensor(img).permute(2, 0, 1).unsqueeze(0)  # CHW format
@@ -52,18 +55,16 @@ def loadImage(path: str) -> torch.Tensor:
     
 
 def Detect(modelPt: str, image: str) -> str:
-    model.load_state_dict(torch.load(modelPt, weights_only=True))
+    #model.load_state_dict(torch.load(modelPt, weights_only=True))
     with torch.no_grad():
-        for img in os.listdir(image):
-            print(img, flush=True)
-            if '\n' in img:
-                img = img[:-1]
-            img = loadImage(image+"\\"+img).to(device)
-            output = model(img)
-            prob = torch.softmax(output, dim=1)
-            predicted_class = torch.argmax(prob, dim=1).item()
-            probs = prob[0][predicted_class].item()
-            predicted_label = label_encoder.inverse_transform([predicted_class])[0]
+        if '\n' in image:
+            image = image[:-1]
+        image = loadImage(image).to(device)
+        output = model(image)
+        prob = torch.softmax(output, dim=1)
+        predicted_class = torch.argmax(prob, dim=1).item()
+        probs = prob[0][predicted_class].item()
+        predicted_label = label_encoder.inverse_transform([predicted_class])[0]
 
     return predicted_label, probs
         
@@ -72,8 +73,8 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = ""
 
 
+print("Waiting for input from stdin", flush=True)
 while True:
-    print("Waiting for input from stdin", flush=True)
     lines = sys.stdin.readline()
     if not lines:
         continue
@@ -94,6 +95,6 @@ while True:
         label_encoder = pickle.load(label)
         model = CNNModel(num_classes=len(label_encoder.classes_)).to(device)
     print("model loaded", flush=True)
-    
+        
     predicted_label, prob = Detect(modelPt, imageAddress)
     print(f"Detected: Predicted label: {predicted_label}, Probability: {prob:.4f}", flush=True)
